@@ -1,0 +1,9 @@
+open 96.31.36.4 
+ccfrcvil
+ccfr2011
+debug
+cd app_data 
+bin
+get db_25784_ccfrsql_backup.bak c:\ccfrdata\CCFRsql_backup.bak 
+close 
+bye 
