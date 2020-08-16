@@ -373,6 +373,7 @@ Public Class EventReview1
                 Else
                     StrMessage += "<br/>"
                 End If
+                mSubject = "CCFR Reservation Confirmation"
             ElseIf noattend = 0 And DuesPaid > 0 Then
                 StrMessage += "Your CCFR dues  of " & Format(DuesPaid, "c") & " is Paid<br />"
                 StrMessage += "The credit on your account was reduced by " & Format(DuesPaid, "c") & "<br />"
