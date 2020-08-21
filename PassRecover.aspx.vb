@@ -76,7 +76,7 @@ Partial Public Class PassRecover
             msgBody.AppendLine()
 
 
-            SendMessageNA(MailSubject, msgBody.ToString, Me.EMailAddress.Text, FromEmail, FromEmail, False)
+            SendMessageNA(MailSubject, msgBody.ToString, Me.EMailAddress.Text, FromEmail, "", False)
             Me.MessageNotification.Text = "Password E-Mail Sent"
         Catch
             Me.MessageNotification.Text = "Password E-Mail Failed.  Please go to contact us page and let us know"

@@ -93,7 +93,7 @@ Public Class EamilAll
         Using cmd As New SqlCommand(strSQL, conn)
             orgEmail = cmd.ExecuteScalar.ToString
             ' Send sampleemail
-            EMailAddresses = "webmaster@ccfrcville.org;jb_morton@live.com"
+            EMailAddresses = "webmaster@ccfrcville.org"
             SendEmail(Attachments, EMailAddresses, orgEmail)
         End Using
         ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('Sample Email Sent')", True)
