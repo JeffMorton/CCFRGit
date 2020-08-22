@@ -2,7 +2,7 @@
 Imports Microsoft.Reporting.WebForms
 Public Class Attendence
     Inherits PageBase
-    'This is the member section attendance report.  This only show the next event either lunch or dinner as selected from the menu by the user.It provides a report for the date selected in Adminstart.  
+    'This is the member section attendance report.  This only show the next event either lunch or dinner as selected from the menu by the user. 
     'There is also a Amin section attendance report Attend.aspx.  It provides a report for the date selected in Adminstart. 
     'Both reports use the same attendence.rdlc.
 

@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class Defaultc
     Inherits PageBase
-    'When a user types ccfrcville.org into the address bar of a webbrowser, this is the page they see.  It shows information about the next dinner event.
+    'When a user types ccfrcville.org into the address bar of a web browser, this is the page they see.  It shows information about the next dinner event.
     'It also displays a menu including all the public pages and options leading to the most of the members only pages.
     'The master page for this and all the public pages is Publ.master.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load

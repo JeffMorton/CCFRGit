@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WebForms
 Public Class MailLabels
     Inherits PageBase
     ReadOnly conn As New SqlConnection
-
+    'This page produces mailing labels for to send information to members.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn.ConnectionString = GetConnectionString(False, False)
         conn.Open()

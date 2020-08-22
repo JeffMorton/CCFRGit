@@ -13,6 +13,10 @@ Public Class EventReview1
     Dim NoAttend As Long
     Dim CostPer As Double
     ReadOnly sqlconnection As New SqlConnection
+    'This page use used whenever a member pays dues or signsup for an event.  It allows the member to verify that they havs signed up correctly and
+    'if they have a credit or owe money to cCCFR, they can apply the credit or pay the money the owe to the current transaction.  This page is also used when paying dues.
+    'If the transaction requires the user to pay, the page sends them to PayPal.  If no payment is required, completing the transaction is handled by this page.  
+    'If payment Is required the completion of the transaction is handled by ppListener.aspx.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         sqlconnection.ConnectionString = GetConnectionStringM(False, False)
         Dim cnt As Integer = 0

@@ -2,7 +2,7 @@
 Imports Microsoft.Reporting.WebForms
 Public Class GuestAttend
     Inherits PageBase
-
+    'This page producing a Guset/New Member report.   This report is used by the meeting host to welcome guests and new members.
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
 
         Dim strConnectionString As String = GetConnectionString(False, False)

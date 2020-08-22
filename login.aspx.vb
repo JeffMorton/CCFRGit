@@ -3,7 +3,7 @@ Imports System.Web
 Partial Public Class Login
     Inherits PageBase
     Dim etype As String
-
+    'This page provides a way for members to login.  For new memebrs, it requires that they select and answer a security question.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If (Session("conn") Is Nothing) Then
             Session("conn") = GetConnectionStringM(True, False).ToString

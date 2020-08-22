@@ -2,7 +2,7 @@
 Public Class History
     Inherits PageBase
     Dim conn As New SqlConnection
-
+    'This is a public page that presents a history of CCFR.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionStringM(True, False))
         conn.Open()

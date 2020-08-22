@@ -3,7 +3,7 @@ Imports Microsoft.Ajax.Utilities
 
 Public Class Admin1
     Inherits PageBase
-    'This is the login page for the admin section.  To reach this page, the user needs to enter ccfrcville.org/admin.aspx.  Note - this admin section has its own mastrpage admin.master.  
+    'This is the login page for the admin section.  To reach this page, the user needs to enter ccfrcville.org/admin.aspx.  Note - this admin section has its own masterpage admin.master.  
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.Login1.PasswordRecoveryUrl = "PassRecover.aspx"
         Me.Login1.PasswordRecoveryText = "Forget Password?"

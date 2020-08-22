@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Public Class InformationTable
     Inherits PageBase
     Dim conn As SqlConnection
+    'This page provides access to the Information Table in the dtabase.  The information table contains parameters that can change from time to time.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()

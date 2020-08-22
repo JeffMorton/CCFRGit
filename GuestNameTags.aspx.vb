@@ -1,7 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
 Imports Microsoft.Reporting.WebForms
-
+'This page prints nametags for guests and new members.  It also prints name tags for old members who have the "PrintNameTag" field in the member table set to true.
 Public Class GuestNameTags
     Inherits PageBase
     Dim conn As SqlConnection

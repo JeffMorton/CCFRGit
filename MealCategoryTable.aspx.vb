@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 Public Class MealCategoryTable
     Inherits PageBase
     Dim conn As SqlConnection
-
+    'This page allows the administrator to view and edit the meal category table.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection With {
             .ConnectionString = GetConnectionString(False, False)

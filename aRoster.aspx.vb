@@ -4,6 +4,8 @@ Imports Microsoft.Reporting.WebForms
 Public Class aRoster
     Inherits PageBase
     Dim conn As New SqlConnection()
+    'This page generates the admin Roster report.  For members there is another Roster Report produced by RosterRP.aspx.
+    'The only difference between the two reports is the Master Page.
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         conn = New SqlConnection(GetConnectionStringM(False, False))
 

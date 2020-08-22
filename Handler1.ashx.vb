@@ -2,7 +2,7 @@
 
 Public Class Handler1
     Implements System.Web.IHttpHandler
-
+    'This handler prevents users who are not logged in from downloading reports that are non-public.
     Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
         System.Diagnostics.Debugger.Launch()
         Dim requestedfile As String = context.Server.MapPath(context.Request.FilePath)

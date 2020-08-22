@@ -2,7 +2,7 @@
 Public Class About
     Inherits PageBase
     Dim conn As New SqlConnection
-    ' AAount us page.  Avaialble to Public.
+    ' About us page.  Avaialble to Public.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionStringM(True, False))
         conn.Open()

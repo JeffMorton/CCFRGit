@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Partial Public Class ChangePassword
     Inherits PageBase
-    'This page hanges changing the username and password.  It is only available on the members ownly section of the website
+    'This page handles changing the username and password.  It is only available on the members only section of the website
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             Try

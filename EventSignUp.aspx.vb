@@ -5,7 +5,7 @@ Public Class EventSignUp
     Inherits PageBase
     Dim conn As SqlConnection
     Dim CurrentMeals As Double
-
+    ' Members can mail in reservation requests or dues payments.  This page allows the administrator to enter in the dues payment and/or reseration.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()

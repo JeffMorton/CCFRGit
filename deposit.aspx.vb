@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Reporting.WebForms
 'provides a list of financial transaction not processed through PayPAL but added to the account table since the last time the report was run.
-'This is designed to list check thaat are being deposited to a bank account>
+'This is designed to list check that are being deposited to a bank account.
 'It provides a user a way to mark items as having been deposited so they don't apprear on future repotrts.
 Public Class deposit
     Inherits PageBase

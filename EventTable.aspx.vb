@@ -3,7 +3,7 @@
 Public Class EventTable
     Inherits PageBase
     Dim conn As New SqlConnection
-
+    'This page allows the administrator to create or edit events.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()

@@ -2,6 +2,8 @@
 Imports Microsoft.Reporting.WebForms
 Public Class EventCard
     Inherits PageBase
+    'Event cards are used to tell the server at CCFR dinners, what the member or guest ordered. This cards are printed out a day or two before the dinner.
+    'The member places this card on the their place on their table for the server to see what meal they selected.
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
 
         Dim strConnectionString As String = GetConnectionString(False, False)
