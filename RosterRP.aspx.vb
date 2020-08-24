@@ -1,7 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Ajax.Utilities
 Imports Microsoft.Reporting.WebForms
-
+'This page generates the member Roster report.  For Admin there is another Roster Report produced by aRosterP.aspx.
+'The only difference between the two reports is the Master Page.
 Public Class RosterRP
     Inherits PageBase
     Dim conn As New SqlConnection()

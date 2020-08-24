@@ -2,7 +2,8 @@
 Public Class PosititionTable
     Inherits PageBase
     Dim conn As SqlConnection
-
+    'The page allows the administrator to review and make additions to the Offices Table.  The offices table contains the names of the organization offices like priesident, treasurer etc.
+    'This table is used to populate the "Position" field in the Member Table.  An entry in this table is  "Member" so all members have a position.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection With {.ConnectionString = GetConnectionString(False, False)}
         conn.Open()

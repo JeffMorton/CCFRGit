@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Reporting.WebForms
+'Produces the unpaid dues report
 Public Class UnPaidDues
     Inherits PageBase
     Dim conn As SqlConnection

@@ -5,6 +5,7 @@ Imports Microsoft.Reporting.WebForms
 Imports System.Data
 Imports System.IO
 Imports System.Net.Mail
+'All of the shared code is in this module.
 Public Module SharedCode
     Public Sub RenderReport(rv As ReportViewer, reportname As String, Folderlocation As String)
         Dim warnings As Warning() = Nothing

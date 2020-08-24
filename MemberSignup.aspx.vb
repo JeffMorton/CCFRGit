@@ -4,6 +4,10 @@ Public Class MemberSignup
     Inherits CCFRW19.PageBase
     Dim TotalCost As Double
     ReadOnly sqlconnection As New SqlConnection
+    'There are three paths through this prpogram.  This was done becasue there is a lot of common code for the three paths.
+    '  Path 1) handles member signup for dinners
+    '  Path 2) handles member signup for lunches
+    '  Path 3) handles dues payment.  Notee, dues can also be paid while signing up for a dinner or lunch.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         sqlconnection.ConnectionString = GetConnectionStringM(False, False)
         sqlconnection.Open()
@@ -147,14 +151,14 @@ Public Class MemberSignup
             Panel3.Visible = True
         ElseIf CDbl(Session("MealsOwed")) < 0 Then
             Me.lbMealsOwed.Text = "Our records indicate that you have a credit of " & String.Format("{0:c2}", Session("MealsOwed")) & " from canceled prior reservations.  This credit will be applied if appropriate."
-                Me.lbMealsOwed.Visible = True
-                Panel3.Visible = True
-            End If
-            If Session("EventID") Is Nothing Then
+            Me.lbMealsOwed.Visible = True
+            Panel3.Visible = True
+        End If
+        If Session("EventID") Is Nothing Then
             GetEventID(Session("EventType").ToString)
         End If
         Me.MealSource.SelectCommand = "select ID, Meal, Category from  dbo.EventMealCategory(" & Session("EventID").ToString & ") where not meal is null  order by place"
-            Me.FVSource.ConnectionString = sqlconnection.ConnectionString
+        Me.FVSource.ConnectionString = sqlconnection.ConnectionString
         Me.FormView1.DataSourceID = FVSource.ID
         Me.FormView1.ChangeMode(FormViewMode.Edit)
         Me.MealSource.ConnectionString = sqlconnection.ConnectionString

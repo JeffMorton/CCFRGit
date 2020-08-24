@@ -5,6 +5,8 @@ Public Class MemberUpdate
     Inherits PageBase
     Dim conn As SqlConnection
     Dim CntMember As Integer
+    '  This page is part of the admin section of the website.  It alllows the administrator to modify the member table.  Note
+    'there are fields that are not modifiable in the member table like DateJoined, Username, and Password. 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionString(False, False))
         If Not IsPostBack Then

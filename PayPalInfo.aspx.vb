@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+'This page allows the administrator to review the messages sent from PayPal to the website as part of the transaction processing.  Note, dues payments are included ith the next dinner.
 Public Class PayPalInfo
     Inherits PageBase
     Dim conn As SqlConnection

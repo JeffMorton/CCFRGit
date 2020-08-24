@@ -1,6 +1,7 @@
 ﻿Imports System.Net
 Imports System.IO
 Imports System.Data.SqlClient
+'This page is called by  PayPal to return information about the transation.  This page only handles "Completed" transaction properly.  In the 9 years this has been in use,there has not be any other kind  of transactions.
 Public Class PpListener
     Inherits PageBase
 

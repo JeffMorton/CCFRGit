@@ -736,7 +736,6 @@
       <DependentUpon>ReservationsClosed.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Roster.aspx.designer.vb" />
     <Compile Include="RosterRP.aspx.designer.vb">
       <DependentUpon>RosterRP.aspx</DependentUpon>
     </Compile>
@@ -745,13 +744,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SharedCode.vb" />
-    <Compile Include="Site.Master.designer.vb">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.vb">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="TextEdit.aspx.designer.vb">
       <DependentUpon>TextEdit.aspx</DependentUpon>
     </Compile>
@@ -791,13 +783,6 @@
     <Compile Include="ViewSwitcher.ascx.designer.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Mobile.Master.vb">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.vb">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AGuest.rdlc" />
@@ -827,8 +812,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <Content Include="Site.Master" />
-    <Content Include="Site.Mobile.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <None Include="packages.config" />
     <Content Include="Publ.Master" />

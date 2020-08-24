@@ -2,6 +2,7 @@
 Imports Microsoft.Reporting.WebForms
 Public Class MealReport
     Inherits PageBase
+    'The meal report is uesed to indicate the meal th meber selected when making the reservation
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         Dim strConnectionString As String = GetConnectionString(False, False)
         Session("conn") = strConnectionString

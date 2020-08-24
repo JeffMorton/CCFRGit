@@ -1,5 +1,6 @@
 ﻿
 Imports System.Data.SqlClient
+'This page allows the user to recover their password.
 Partial Public Class PassRecover
     Inherits PageBase
 

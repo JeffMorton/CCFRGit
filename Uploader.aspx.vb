@@ -1,5 +1,6 @@
 ﻿Public Class WebForm4
     Inherits PageBase
+    'This program is used to upload attachement to emails as needed.
     Protected Sub Page_Load(ByVal sender As Object,
         ByVal e As System.EventArgs) Handles Me.Load
         Label1.Visible = True

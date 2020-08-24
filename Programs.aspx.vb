@@ -2,8 +2,10 @@
 
 Partial Public Class Programs
     Inherits PageBase
-
-
+    'This page handles current programs and past programs pages on the public section of the website.  
+    'The webmenu table sends dates to this page which determines the year to be displayed.
+    'These dates are automatically update when a September program is added to the system.
+    'If this needs to be done manually, there is a stored procedure called "UpdateWebMenu" that does it.
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack And Not IsCrossPagePostBack Then

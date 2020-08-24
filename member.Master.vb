@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Partial Public Class member
     Inherits System.Web.UI.MasterPage
-
+    'This is the master page for members who have logged in.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Dim ds As DataSet = New DataSet
