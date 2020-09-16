@@ -9,7 +9,7 @@ Public Class Attend
     'There is also a member section attendance report Attendance.aspx.  This only show the next event either lunch or dinner as selected from the menu by the user.
     'Both reports use the same attendence.rdlc.
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
-        conn = New SqlConnection(GetConnectionStringM(False, False))
+        conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()
 
 

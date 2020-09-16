@@ -9,7 +9,7 @@ Public Class EmailAttendees
     'This page includes CKEditor rich text editor and emails are html enabled.
 
     Protected Sub Page_load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionStringM(False, False))
+        conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()
         Using cmd As New SqlCommand("SELECT type from event where ID =@EventID", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))

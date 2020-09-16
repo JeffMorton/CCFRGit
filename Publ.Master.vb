@@ -5,7 +5,7 @@ Public Class Publ
     'This is the master page for the public psection of the website.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim ds As DataSet = New DataSet
-        Dim strConnection As String = GetConnectionStringM(True, False)
+        Dim strConnection As String = GetConnectionString(True, False)
 
 
         Dim conn As New SqlConnection With {

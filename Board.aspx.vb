@@ -5,7 +5,7 @@
     ' Membership and financial commiittee changes require chenges to this page and the RosterRP.aspx page.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        Me.SqlDataSource1.ConnectionString = GetConnectionStringM(True, False)
+        Me.SqlDataSource1.ConnectionString = GetConnectionString(True, False)
         Me.ProgramDataSource.connectionstring = SqlDataSource1.ConnectionString
         Me.LunchDataSource.ConnectionString = SqlDataSource1.ConnectionString
         Me.BoarddataSource.ConnectionString = SqlDataSource1.ConnectionString

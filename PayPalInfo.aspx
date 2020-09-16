@@ -6,7 +6,9 @@
 <div class="pNormalText" >   <asp:Label ID="Label7" runat="server" Text="EventID: " /><asp:TextBox ID="EventID" runat="server" />&nbsp;&nbsp;
 <asp:Label ID="Label8" runat="server" Text="Count: " /><asp:TextBox ID="Cnt" runat="server" /> <br /><br /></div>
     <asp:Button ID="SortbyDate" runat="server" Text="Sort by Date" /><asp:Button ID="SortbyName" runat="server" Text="Sort by Name" /><br /><br />
-      <div style="width: 715px; height: 650px; overflow: scroll" class="pSmallTextNJ">
+    <asp:Button ID="Top500" runat="server" Text="Latest 500" />
+ 
+    <div style="width: 715px; height: 650px; overflow: scroll" class="pSmallTextNJ">
     <asp:GridView ID="ppGridview" runat="server" AllowPaging="false" CssClass="pVSmallTextNJ" AlternatingRowStyle-BackColor="#C2D69B"  AutoGenerateColumns="False"  DataKeyNames="ID" EmptyDataText="No data available." HeaderStyle-BackColor="Wheat" ShowHeaderWhenEmpty="true" Width="680" AllowSorting="True" PageSize="20">
             <Columns>
                     <asp:TemplateField>

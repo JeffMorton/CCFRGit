@@ -22,7 +22,7 @@
 	<br />
 	Note -- to download either document, click on the document name above. 
 	To download these items, you need to have the Adobe Reader on your computer. 
-	Adobe Reader is available without change at <a href="http://www.adobe.com">www.adobe.com</a>. <br />
+	Adobe Reader is available without charge at <a href="http://www.adobe.com">www.adobe.com</a>. <br />
 	<br />
 	If you don&#39;t have Adobe Reader, you can request an application by clicking 
 	on &quot;<a href="ContactUs.aspx">Contact Us</a>&quot; and providing us with your name and address in the message 

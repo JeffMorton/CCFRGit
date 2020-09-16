@@ -30,14 +30,21 @@ Partial Public Class member
         }
         ds.Relations.Add(relation)
         XmlDataSource1.Data = ds.GetXml()
+        Dim url As String
         If Not Request.Params("sel") Is Nothing Then
             Using cmd As New SqlCommand("select url from webmenu where text = @sel", conn)
                 cmd.Parameters.AddWithValue("@sel", Request.Params("Sel"))
-
-                Dim url As String
-                url = cmd.ExecuteScalar.ToString
-                If Not url Is Nothing Then Response.Redirect(url)
+                Try
+                    url = cmd.ExecuteScalar.ToString
+                Catch
+                    url = Nothing
+                End Try
             End Using
+            If Not (url Is Nothing) Then
+                Response.Redirect(url)
+            Else
+                Response.Redirect("https://ccfrcville.org")
+            End If
 
         End If
     End Sub

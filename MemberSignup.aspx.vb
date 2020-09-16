@@ -9,7 +9,7 @@ Public Class MemberSignup
     '  Path 2) handles member signup for lunches
     '  Path 3) handles dues payment.  Notee, dues can also be paid while signing up for a dinner or lunch.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        sqlconnection.ConnectionString = GetConnectionStringM(False, False)
+        sqlconnection.ConnectionString = GetConnectionString(False, False)
         sqlconnection.Open()
 
 
@@ -34,6 +34,8 @@ Public Class MemberSignup
             Case "Dues Only"
                 TitleL.Text = "Dues Payment For " & Session("FullName").ToString
         End Select
+        Session("DuesIncluded") = False
+
         If Not IsPostBack Then
             If Not (Session("EventType").ToString = "Dues Only") Then
                 Me.lbCost.Text = Format(CDbl(Session("MealCost")), "c")
@@ -156,8 +158,15 @@ Public Class MemberSignup
         End If
         If Session("EventID") Is Nothing Then
             GetEventID(Session("EventType").ToString)
+            If CInt(Session("EventID")) = 0 Then
+                If Session("EventType").ToString = "Dinner" Then
+                    Response.Redirect("DinnerClosed.aspx?Type=NotAvailable")
+                Else
+                    Response.Redirect("LunchClosed?Type=NotAvailable")
+                End If
+            End If
         End If
-        Me.MealSource.SelectCommand = "select ID, Meal, Category from  dbo.EventMealCategory(" & Session("EventID").ToString & ") where not meal is null  order by place"
+        Me.MealSource.SelectCommand = "select ID, Meal, Category from  dbo.EventMealCategory(" & Session("EventID").ToString & ") where  not (meal is null or meal ='')  order by place"
         Me.FVSource.ConnectionString = sqlconnection.ConnectionString
         Me.FormView1.DataSourceID = FVSource.ID
         Me.FormView1.ChangeMode(FormViewMode.Edit)
@@ -231,7 +240,6 @@ Public Class MemberSignup
             End If
             Session("Quantity") = cnt
             TotalCost = CDbl(cnt * CDbl(lbCost.Text))
-            Session("DuesIncluded") = False
             If Me.chkDues.Checked Then
                 TotalCost += CDbl(Session("DuesOwed"))
                 Session("DuesIncluded") = True

@@ -5,7 +5,7 @@ Partial Public Class PassRecover
     Inherits PageBase
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Session("Conn") = GetConnectionStringM(True, False)
+        Session("Conn") = GetConnectionString(True, False)
     End Sub
 
 

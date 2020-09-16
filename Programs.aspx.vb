@@ -31,7 +31,7 @@ Partial Public Class Programs
     Private Function FillData(ByVal strSQL As String) As DataSet
         Dim ds As DataSet = New DataSet
 
-        Dim conn As New SqlConnection With {.ConnectionString = GetConnectionStringM(True, False)}
+        Dim conn As New SqlConnection With {.ConnectionString = GetConnectionString(True, False)}
         conn.Open()
         Dim myAdaptor As New SqlDataAdapter(strSQL, conn)
         myAdaptor.Fill(ds)

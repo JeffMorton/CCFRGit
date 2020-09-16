@@ -4,7 +4,7 @@ Public Class About
     Dim conn As New SqlConnection
     ' About us page.  Avaialble to Public.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionStringM(True, False))
+        conn = New SqlConnection(GetConnectionString(True, False))
         conn.Open()
 
         Using cmd As New SqlCommand("Select PageText  from PageTexts where PageName = 'About Us'", conn)

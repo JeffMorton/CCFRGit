@@ -18,7 +18,7 @@ Public Class EventReview1
     'If the transaction requires the user to pay, the page sends them to PayPal.  If no payment is required, completing the transaction is handled by this page.  
     'If payment Is required the completion of the transaction is handled by ppListener.aspx.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        sqlconnection.ConnectionString = GetConnectionStringM(False, False)
+        sqlconnection.ConnectionString = GetConnectionString(False, False)
         Dim cnt As Integer = 0
         memID = CInt(Session("Userid"))
         evid = CInt(Session("Eventid"))
@@ -76,14 +76,6 @@ Public Class EventReview1
                             'Cancel_Click("No Reservations", e1)
                         Else
                             Me.Reserve.Text = "Pay Dues For"
-                            'Me.CP.Visible = False
-                            'Me.NA.Visible = False
-                            'Me.SignedUp.Visible = False
-                            'Me.NumAttend.Visible = False
-                            'Me.CostPer.Visible = False
-                            'Me.Reserve.Visible = False
-
-
                         End If
                     End If
                     Dr.Close()
@@ -256,6 +248,9 @@ Public Class EventReview1
 
         GridView1.DataSource = dt
         GridView1.DataBind()
+        If Not (CBool(Session("DuesInclued")) Or cnt <> 0) Then
+            Complete.Enabled = False
+        End If
     End Sub
 
     Protected Sub Complete_click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Complete.Click
@@ -458,6 +453,8 @@ Public Class EventReview1
                 mcap = "people"
             End If
             StrMessage += "You have removed " & CStr(-NoAttend) & " " & mcap & " from your reservation.  A credit of " & Format(CDbl(-NoAttend * CostPer), "c") & " as been added to you account."
+        ElseIf noattend = 0 And DuesPaid = 0 Then
+            Response.Redirect("default.aspx")
         Else
             StrMessage += "No additional meals purchased"
         End If

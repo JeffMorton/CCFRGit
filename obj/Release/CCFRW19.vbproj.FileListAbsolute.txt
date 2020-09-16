@@ -353,7 +353,6 @@ D:\Documents\GitHub\CCFRGit\bin\ro\Xceed.Wpf.AvalonDock.resources.dll
 D:\Documents\GitHub\CCFRGit\bin\ru\Xceed.Wpf.AvalonDock.resources.dll
 D:\Documents\GitHub\CCFRGit\bin\sv\Xceed.Wpf.AvalonDock.resources.dll
 D:\Documents\GitHub\CCFRGit\bin\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.vbprojAssemblyReference.cache
 D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.Resources.resources
 D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.vbproj.GenerateResource.cache
 D:\Documents\GitHub\CCFRGit\obj\Release\RdlCompile.cache

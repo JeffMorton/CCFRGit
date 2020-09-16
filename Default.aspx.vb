@@ -24,7 +24,7 @@ The CCFR reserves are healthy, and for that reason, the Board decided for the up
 
 "
 
-        Dim strConnection As String = GetConnectionStringM(True, False)
+        Dim strConnection As String = GetConnectionString(True, False)
         'GetEventID("Dinner")
         Session("Conn") = strConnection
         Dim conn As New SqlConnection With {

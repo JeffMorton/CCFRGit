@@ -29,7 +29,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/17/2020 10:33:14</publishTime>
     </File>
     <File Include="App_Code/SharedCode.vb">
-      <publishTime>08/12/2020 14:45:48</publishTime>
+      <publishTime>08/26/2020 14:16:46</publishTime>
     </File>
     <File Include="aRoster.aspx">
       <publishTime>03/24/2020 09:23:27</publishTime>
@@ -59,10 +59,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2019 13:33:30</publishTime>
     </File>
     <File Include="bin/CCFRW19.dll">
-      <publishTime>08/21/2020 12:38:11</publishTime>
+      <publishTime>09/16/2020 11:17:11</publishTime>
     </File>
     <File Include="bin/CCFRW19.pdb">
-      <publishTime>08/21/2020 12:38:11</publishTime>
+      <publishTime>09/16/2020 11:17:11</publishTime>
     </File>
     <File Include="bin/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:28</publishTime>
@@ -497,7 +497,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/10/2020 15:15:20</publishTime>
     </File>
     <File Include="bin/WebForms_Basic.xml">
-      <publishTime>08/21/2020 12:38:11</publishTime>
+      <publishTime>09/16/2020 11:17:11</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -776,7 +776,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2020 11:06:42</publishTime>
     </File>
     <File Include="Membership.aspx">
-      <publishTime>07/24/2020 12:35:13</publishTime>
+      <publishTime>08/25/2020 12:51:59</publishTime>
     </File>
     <File Include="MemberSignup.aspx">
       <publishTime>06/12/2020 13:09:55</publishTime>
@@ -794,7 +794,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2019 16:16:11</publishTime>
     </File>
     <File Include="PayPalInfo.aspx">
-      <publishTime>05/07/2020 11:11:25</publishTime>
+      <publishTime>08/24/2020 15:22:49</publishTime>
     </File>
     <File Include="PositionTable.aspx">
       <publishTime>10/12/2019 09:54:33</publishTime>
@@ -947,7 +947,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/20/2020 11:13:27</publishTime>
     </File>
     <File Include="TransformXSLT.xslt">
-      <publishTime>06/01/2019 14:18:03</publishTime>
+      <publishTime>08/24/2020 14:59:33</publishTime>
     </File>
     <File Include="UnPaidDues.aspx">
       <publishTime>08/31/2019 13:36:52</publishTime>
@@ -965,7 +965,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 11:19:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/21/2020 12:38:28</publishTime>
+      <publishTime>09/16/2020 11:17:39</publishTime>
     </File>
   </ItemGroup>
 </Project>

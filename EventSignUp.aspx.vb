@@ -44,7 +44,7 @@ Public Class EventSignUp
             Me.MealSource.ConnectionString = conn.ConnectionString
         End If
         Me.MemNameDLL.Focus()
-        Me.MealSource.SelectCommand = "select ID, Meal, Category from  dbo.EventMealCategory(" & Session("EventID").ToString & ") where not meal is null  order by place"
+        Me.MealSource.SelectCommand = "select ID, Meal, Category from  dbo.EventMealCategory(" & Session("EventID").ToString & ") where not (meal is null or meal ='') order by place"
         Me.GuestSource.ConnectionString = conn.ConnectionString
         Me.FVSource.ConnectionString = conn.ConnectionString
         Me.NameSource.ConnectionString = conn.ConnectionString

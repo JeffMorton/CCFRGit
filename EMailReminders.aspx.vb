@@ -11,7 +11,7 @@ Public Class EMailReminders
     'This page includes CKEditor rich text editor and emails are html enabled.
 
     Protected Sub Page_load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionStringM(False, False))
+        conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()
         Using cmd As New SqlCommand("SELECT type from event where ID =@EventID", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
@@ -40,21 +40,36 @@ Public Class EMailReminders
 
 
 
-            Dim strSQL As String = "select Firstname + ' ' + lastname as Fullname, Guest from AttendenceReport(" & Session("EventID").ToString & ")  where lastname >' ' order by Lastname,Firstname"
+            Dim strSQL As String = "select Firstname + ' ' + lastname as Fullname, Guest from AttendenceReport(@EventID)  where lastname >' ' order by Lastname,Firstname"
+            Using cmd As New SqlCommand(strSQL, conn)
+                cmd.Parameters.AddWithValue("@EventID", EventID.Text)
+                Dim adp As New SqlDataAdapter(cmd)
+                Dim rs As New DataTable
+                adp.Fill(rs)
+                Dim ds As New DataSet("dsattendence")
+                ds.Tables.Add(rs)
 
-            ReportViewer1.LocalReport.DataSources.Add(ReportDataS(strSQL, "dsattendence", conn))
+                Dim rds As New ReportDataSource With {
+                    .Name = "dsattendence",
+                    .Value = ds.Tables(0)
+                }
+                ReportViewer1.LocalReport.DataSources.Add(rds)
+                ds.Dispose()
+                adp.Dispose()
+            End Using
+
             Dim param As ReportParameter() = New ReportParameter(5) {}
-            param(0) = New ReportParameter("DayTimePrinted", Now().ToString)
-            param(1) = New ReportParameter("MeetingDate", Session("EventDate").ToString())
-            Dim c1 As Integer = GetScalarInt("Select count(Spouseattend) as cnt from membersignup where eventid = " & Session("EventID").ToString & "And spouseattend = 'true'", conn)
-            param(3) = New ReportParameter("NumSpouse", Str(c1))
-            Dim c As Integer = GetScalarInt("Select count(Memberattend) as cnt from membersignup where eventid =  " & Session("EventID").ToString & " And memberattend = 'true'", conn)
+            param(0) = New ReportParameter("DayTimePrinted", CStr(Now()))
+            param(1) = New ReportParameter("MeetingDate", CStr(EventDate.Text))
+            Dim c1 As Integer = GetScalarInt("Select count(Spouseattend) as cnt from membersignup where eventid = " & EventID.Text & "And spouseattend = 'true'", conn)
+            param(3) = New ReportParameter("NumSpouse", CStr(c1))
+            Dim c As Integer = GetScalarInt("Select count(Memberattend) as cnt from membersignup where eventid =  " & EventID.Text & " And memberattend = 'true'", conn)
             param(2) = New ReportParameter("NumMembers", CStr(c + c1))
-            Dim c2 As Integer = GetScalarInt("Select count(id) as cnt from Guestsignup where eventid = " & Session("EventID").ToString, conn)
+            Dim c2 As Integer = GetScalarInt("Select count(id) as cnt from Guestsignup where eventid = " & EventID.Text, conn)
             param(4) = New ReportParameter("Guests", CStr(c2))
             param(5) = New ReportParameter("Total", CStr(c + c1 + c2))
-            ReportViewer1.LocalReport.SetParameters(param)
 
+            ReportViewer1.LocalReport.SetParameters(param)
 
             RenderReport(ReportViewer1, "Attendence.pdf", Server.MapPath("~/Reports/"))
 
@@ -62,6 +77,7 @@ Public Class EMailReminders
             Me.ESent.Text = "0"
         End If
     End Sub
+
     Protected Sub SendEMailReminders(sender As Object, e As EventArgs)
         Dim strsql As String
         Dim LastMemberId As Integer = 0
@@ -74,12 +90,12 @@ Public Class EMailReminders
         Dim j As Integer
         Dim EMailAddresses As String = ""
 
-
+        Attachments(0) = Server.MapPath("~/documents/") & "Attendence.paf"
         Using cmd As New SqlCommand("select * from attachments where eventid =@Eventid", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
             Dim dr As SqlDataReader
             dr = cmd.ExecuteReader
-            j = 0
+            j = 1
             If dr.HasRows Then
                 Do While dr.Read()
                     Attachments(j) = Server.MapPath("~/documents/") & dr("FileName").ToString

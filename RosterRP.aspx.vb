@@ -7,7 +7,7 @@ Public Class RosterRP
     Inherits PageBase
     Dim conn As New SqlConnection()
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
-        conn = New SqlConnection(GetConnectionStringM(False, False))
+        conn = New SqlConnection(GetConnectionString(False, False))
 
         conn.Open()
 

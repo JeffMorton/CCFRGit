@@ -37,7 +37,7 @@ Public Class Global_asax
         Dim lastErrorStackTrace As String = lastError.StackTrace
 
         'insert into WebErrorLog
-        Dim conn As New SqlConnection(GetConnectionStringM(True, False))
+        Dim conn As New SqlConnection(GetConnectionString(True, False))
 
         conn.Open()
         Dim strSQL As String = "insert into WebErrorLog(ErrorMessage,StackTrace,Typename,ErrorTime) values (@Message,@trace,@type,@dTime)"

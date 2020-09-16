@@ -4,9 +4,9 @@ Public Class PayPalInfo
     Inherits PageBase
     Dim conn As SqlConnection
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionString(False, False))
+        conn = New SqlConnection(GetConnectionString(True, False))
         conn.Open()
-
+        Session("EventID") = 1220
         Using cmd As New SqlCommand("FillPPTranslog", conn)
             cmd.CommandType = CommandType.StoredProcedure
             cmd.ExecuteNonQuery()
@@ -36,5 +36,12 @@ Public Class PayPalInfo
             ppGridview.DataBind()
         End Using
     End Sub
+    Protected Sub Top500S() Handles Top500.Click
+        Using cmd As New SqlCommand("select top 500 ppTranslog.[ID],[TransNo],[Date],[EventID],ppTranslog.[MemberID],[Amount],[RegDate] ,mlFullName FROM [dbo].[ppTransLog] left join member on ppTranslog.memberid = member.id  where status='Completed'  order by ID desc ", conn)
+            cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
+            ppGridview.DataSource = GridViewDataS(cmd)
+            ppGridview.DataBind()
+        End Using
 
+    End Sub
 End Class

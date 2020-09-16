@@ -7,7 +7,7 @@ Public Class Attendence
     'Both reports use the same attendence.rdlc.
 
     Protected Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
-        Dim strConnectionString As String = GetConnectionStringM(False, False)
+        Dim strConnectionString As String = GetConnectionString(False, False)
         Dim Conn As SqlConnection = New SqlConnection(strConnectionString)
         Dim strSQL As String
         Dim etype As String

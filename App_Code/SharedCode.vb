@@ -105,38 +105,7 @@ Public Module SharedCode
         End Using
 
     End Sub
-    Public Function GetConnectionStringM(PrimarySource As Boolean, xDebug As Boolean) As String
-        'used on members part of website
-        'If Primary source is true, the page can be run without loggin in.  False requires logging in
-        'if xDebug is true, the connection string returned points to the development database other wise, it points to the production database
-        'if run locally and session("Debug")=true then this routine always point to delvelopment database
 
-        If HttpContext.Current.Request.IsLocal = True And CBool(System.Web.HttpContext.Current.Session("Debug")) = True Then
-            xDebug = True
-            System.Web.HttpContext.Current.Session("Loggedin") = True
-            System.Web.HttpContext.Current.Session("UserID") = 83
-            System.Web.HttpContext.Current.Session("FullName") = "Jeffrey Morton"
-            System.Web.HttpContext.Current.Session("UserName") = "Jeffrey Morton"
-        End If
-
-        If xDebug Then
-                GetConnectionStringM = ConfigurationManager.ConnectionStrings("CCFRDataConnectionString").ToString()
-                System.Web.HttpContext.Current.Session("conn") = GetConnectionStringM
-            Else
-                If PrimarySource Then
-                GetConnectionStringM = ConfigurationManager.ConnectionStrings("DB_25784_ccfrsqlConnectionString").ToString
-                System.Web.HttpContext.Current.Session("conn") = GetConnectionStringM
-            Else
-                If CBool(System.Web.HttpContext.Current.Session("loggedin")) Then
-                    GetConnectionStringM = ConfigurationManager.ConnectionStrings("DB_25784_ccfrsqlConnectionString").ToString
-                    System.Web.HttpContext.Current.Session("conn") = GetConnectionStringM
-                Else
-                    System.Web.HttpContext.Current.Response.Redirect("http://ccfrcville.org/Default.aspx")
-                    GetConnectionStringM = ""
-                End If
-            End If
-        End If
-    End Function
 
     Public Function GetConnectionString(PrimarySource As Boolean, xDebug As Boolean) As String
         'used on adinistrative part of website

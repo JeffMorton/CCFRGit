@@ -6,12 +6,12 @@ Partial Public Class Login
     'This page provides a way for members to login.  For new memebrs, it requires that they select and answer a security question.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If (Session("conn") Is Nothing) Then
-            Session("conn") = GetConnectionStringM(True, False).ToString
+            Session("conn") = GetConnectionString(True, False).ToString
         End If
         Dim conn As New SqlConnection(Session("Conn").ToString())
         conn.Open()
-        Session("EventID") = 1215
-        'Session("UserID") = 83
+        'Session("EventID") = 1227
+        'Session("UserID") = 28
         RecordError("Login Started", " ", " ", conn)
         Me.Login1.PasswordRecoveryUrl = "PassRecover.aspx"
         Me.Login1.PasswordRecoveryText = "Forget Password?"
@@ -26,7 +26,7 @@ Partial Public Class Login
             ReDir(etype)
         End If
         Me.Form.DefaultFocus = Login1.FindControl("Username").ClientID
-
+        SqlDataSource2.ConnectionString = conn.ConnectionString
     End Sub
     Private Sub ReDir(etype As String)
         Select Case etype
