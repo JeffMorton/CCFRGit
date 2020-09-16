@@ -1,5 +1,5 @@
 vti_encoding:SR|utf8-nl
-vti_timelastmodified:TR|28 Jun 2020 13:17:11 -0000
+vti_timelastmodified:TR|15 Aug 2020 15:47:05 -0000
 vti_author:SR|JEFF-PC\\jb_mo
 vti_modifiedby:SR|JEFF-PC\\jb_mo
 vti_nexttolasttimemodified:TW|14 Jun 2020 13:24:00 -0000
@@ -8,8 +8,8 @@ vti_extenderversion:SR|12.0.0.0
 vti_backlinkinfo:VX|
 vti_syncofs_ccfrcville.org\:21:TW|14 Jun 2020 13:24:00 -0000
 vti_syncwith_ccfrcville.org\:21:TW|17 Jun 2020 15:19:36 -0000
-vti_cacheddtm:TX|28 Jun 2020 13:17:11 -0000
-vti_filesize:IR|796
+vti_cacheddtm:TX|15 Aug 2020 15:47:05 -0000
+vti_filesize:IR|793
 vti_cachedlinkinfo:VX|R|~/Publ.Master S|Images/j0254488.gif
 vti_cachedsvcrellinks:VX|URUS|~/Publ.Master FSUS|Images/j0254488.gif
 vti_cachedneedsrewrite:BR|false
