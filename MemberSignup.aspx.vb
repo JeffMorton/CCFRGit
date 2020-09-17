@@ -54,7 +54,7 @@ Public Class MemberSignup
                                 Me.lbEventDate.Text = CDate(Dr("EventDate")).ToString("dddd, MMM d yyyy")
                                 Session("EventDate") = Dr("EventDate")
                                 If DateDiff(DateInterval.Day, CDate(Now.ToShortDateString), CDate(Me.lbEventDate.Text)) < CLng(3) Then
-                                    ' Response.Redirect("ReservationsClosed.aspx")
+                                    Response.Redirect("ReservationsClosed.aspx")
                                 End If
                                 If Dr("Speaker") Is System.DBNull.Value Then
                                     Me.lbSpeaker.Text = "To be Announced"

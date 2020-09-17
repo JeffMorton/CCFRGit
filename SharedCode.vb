@@ -191,8 +191,8 @@ Public Module SharedCode
         myMessage.Subject = MessageSubject
         If Not String.IsNullOrEmpty(ToEmail) Then
             ToEM = Split(ToEmail, ";")
-            For i = 0 To ToEm.Length - 1
-                myMessage.To.Add(ToEm(i))
+            For i = 0 To ToEM.Length - 1
+                myMessage.To.Add(ToEM(i))
             Next
         End If
 
@@ -208,6 +208,8 @@ Public Module SharedCode
             If Not String.IsNullOrEmpty(Attach(i)) Then
                 Dim attch As New Attachment(Attach(i))
                 myMessage.Attachments.Add(attch)
+            Else
+                Exit For
             End If
         Next
 
@@ -225,7 +227,7 @@ Public Module SharedCode
             .Host = "m04.internetmailserver.net"
         }
         Try
-            MailObj.Send(myMessage)
+            'MailObj.Send(myMessage)
             If Not String.IsNullOrEmpty(BccEmail) Then
                 CntMember += BccM.Length
             Else
@@ -289,8 +291,8 @@ Public Module SharedCode
         Dim Attach(1) As String
 
         Attach(1) = ""
-        Dim MsgBody As String = "<p>The  " & EmailSource & " option just send " & CStr(CntEmails) & " Emails. " & CStr(CntMember) & " mmbers received these emails.<p>"
-        SendMessage("Final Email from " & EmailSource, MsgBody, "Wemaster@ccfrcville.org;jb_morton@live.com", "reservatation@ccfrcville.org", "", True, Attach, 0)
+        Dim MsgBody As String = "<p>The  " & EmailSource & " option just send " & CStr(CntEmails) & " Emails. " & CStr(CntMember) & " members received these emails.<p>"
+        SendMessage("Final Email from " & EmailSource, MsgBody, "Webmaster@ccfrcville.org", "reservatation@ccfrcville.org", "", True, Attach, 0)
 
     End Sub
 End Module

@@ -149,22 +149,31 @@ Public Class EventReview1
                 End Using
                 ecnt = CheckCount(evid)
                 RecordError("ER Event Count", CStr(ecnt + cnt), " ", sqlconnection)
-                If ecnt + cnt >= 200 And cnt > 0 Then
-                    Response.Redirect("Dinnerclosed.aspx")
+                If Session("EventType").ToString = "Dinner" Then
+                    Dim maxdinner As Integer = CInt(Info("MaxDinner"))
+                    If ecnt + cnt >= maxdinner And cnt > 0 Then
+                        Response.Redirect("Dinnerclosed.aspx")
+                    End If
+                Else
+                    Dim maxlunch As Integer = CInt(Info("MaxLunch"))
+                    If ecnt + cnt >= maxlunch And cnt > 0 Then
+                        Response.Redirect("Lunchclosed.aspx")
+                    End If
+
                 End If
                 If cnt > 0 Or (cnt < 0 And CBool(Session("DuesIncluded")) = True) Then
                     Me.Panel3.Visible = True
                     dt.Rows.Add(naCaption, CStr(cnt))
-                    dt.Rows.Add("Cost of Meals at" & " " & Format(CDbl(Session("mealCost")), "c") & ":", CStr(Format(CDbl(cnt * CDbl(Session("MealCost"))), "c"))) '
+                    dt.Rows.Add("Cost of Meals at" & " " & Format(CDbl(Session("mealCost")), "c") & ":  ", CStr(Format(CDbl(cnt * CDbl(Session("MealCost"))), "c"))) '
                     Session("NoAttend") = cnt
                 Else
                     Me.Panel3.Visible = False
-                    Msg.Text = "You have removed " & -cnt & " " & CStr(IIf(cnt = -1, "person", "people")) & " from your reservation.  A credit of " & CStr(Format(CDbl(-cnt * CDbl(Session("MealCost"))), "c")) & " will be added to your account. "
-                    Msg.Visible = True
-                    Session("NoAttend") = cnt
-                End If
-            Else
-                If Session("MealCost") Is Nothing Then Session("MealCost") = 0
+                        Msg.Text = "You have removed " & -cnt & " " & CStr(IIf(cnt = -1, "person", "people")) & " from your reservation.  A credit of " & CStr(Format(CDbl(-cnt * CDbl(Session("MealCost"))), "c")) & " will be added to your account. "
+                        Msg.Visible = True
+                        Session("NoAttend") = cnt
+                    End If
+                Else
+                    If Session("MealCost") Is Nothing Then Session("MealCost") = 0
                 Panel1.Visible = True
                 Panel3.Visible = True
                 cnt = 0

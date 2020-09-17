@@ -39,7 +39,6 @@ Public Class EMailReminders
             ReportViewer1.ShowExportControls = True
 
 
-
             Dim strSQL As String = "select Firstname + ' ' + lastname as Fullname, Guest from AttendenceReport(@EventID)  where lastname >' ' order by Lastname,Firstname"
             Using cmd As New SqlCommand(strSQL, conn)
                 cmd.Parameters.AddWithValue("@EventID", EventID.Text)
@@ -90,7 +89,7 @@ Public Class EMailReminders
         Dim j As Integer
         Dim EMailAddresses As String = ""
 
-        Attachments(0) = Server.MapPath("~/documents/") & "Attendence.paf"
+        Attachments(0) = Server.MapPath("~/reports/") & "Attendence.pdf"
         Using cmd As New SqlCommand("select * from attachments where eventid =@Eventid", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
             Dim dr As SqlDataReader
@@ -142,9 +141,11 @@ Public Class EMailReminders
                 dr.Close()
                 If i >= 1 Then SendEmail(Names, Meals, etype, GreetName, Attachments, EMailAddresses)
 
+                SendFinalEmail(Totalcnt, CntMember, "EmailReminders")
+
                 ' send email to show all emails sent
-                SendFinalEmail(Totalcnt, CntMember, "Email Attendees")
-                Me.ESent.Text = totalcnt.tostring()
+
+                Me.ESent.Text = (Totalcnt - 1).ToString()
                 ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('All Emails Sent')", True)
 
 
@@ -155,7 +156,7 @@ Public Class EMailReminders
     End Sub
     Protected Sub SendEmail(Names() As String, Meals() As String, etype As String, GreetName As String, Attachments() As String, EmailAddresses As String)
         Dim i As Integer
-        Dim Totalcnt As Integer
+
         Dim MailSubject As String = "CCFR Meeting Reminder"
 
         Dim msgBody As String = EmailGreeting(GreetName, Session("EventDate").ToString, etype)
@@ -163,17 +164,22 @@ Public Class EMailReminders
         Dim FromEmail As String = "reservations@ccfrcville.org"
 
         For i = 0 To Names.Length - 1
-            msgBody += AddName(Names(i), Meals(i))
+            If Not String.IsNullOrEmpty(Names(i)) Then
+                msgBody += AddName(Names(i), Meals(i))
+            Else
+                Exit For
+            End If
         Next
         msgBody += EndTable(etype)
         msgBody += AddText.Text
+        msgBody = Mid(msgBody, 1, Len(msgBody) - 2)
         msgBody += FinishMessage()
 
         Totalcnt += SendMessage(MailSubject, msgBody, "reservations@ccfrcville.org", FromEmail, EmailAddresses, True, Attachments, CntMember)
-
+        Debug.Print("Totalcnt " & Totalcnt)
+        Debug.Print("Member Cnt " & CntMember)
         Me.ESent.Text = Totalcnt.ToString
 
-        SendFinalEmail(Totalcnt, CntMember, "EmailReminders")
 
 
 
@@ -184,17 +190,19 @@ Public Class EMailReminders
 
     Protected Shared Function EmailGreeting(Nam As String, dt As String, etype As String) As String
         If etype = "Dinner" Then
+
+
             EmailGreeting = "<p>Dear " & Nam & ",</p>" _
-        & " <p>We would like to remind you that the next CCFR meeting is " & dt & " at the" _
-        & " Glenmore Country club.&nbsp; Our records indicate that you have the following" _
-        & " reservations:</p> <div style=""margin-left:50px""> <table style=""width: 80%"" >" _
-        & "    <tr>" _
-        & "         <td style=""width: 150px"" class=""auto-style1""><strong>Attendee(s)</strong></td>" _
-         & " <td style=""width: 150px"" class=""auto-style1""><strong>Meal(s)</strong></td>    </tr>"
+            & "<p>We would like to remind you that the next ccfr meeting is " & dt & " via Zoom</p>" _
+             & "Our records indicate that you have the following" _
+            & " reservations:</p> <div style=""margin-left:50px""> <table style=""width: 80%"" >" _
+             & "    <tr>" _
+             & "         <td style=""width: 150px"" class=""auto-style1""><strong>attendee(s)</strong></td>" _
+             & " <td style=""width: 150px"" class=""auto-style1""><strong>meal(s)</strong></td>    </tr>"
         Else
             EmailGreeting = "<p>Dear " & Nam & ",</p>" _
-        & " <p>We would like to remind you that the next CCFR meeting is " & dt & " at the" _
-        & " Omni Hotel. &nbsp; Our records indicate that you have the following" _
+        & " <p>We would like to remind you that the next CCFR meeting is " & dt & " via Zoom" _
+        & "  &nbsp; Our records indicate that you have the following" _
         & " reservations:</p> <div style=""margin-left:50px""> <table style=""width: 80%"" >" _
         & "    <tr>" _
         & "         <td style=""width: 150px"" class=""auto-style1""><strong>Attendee(s)</strong></td>" _
@@ -242,9 +250,9 @@ Public Class EMailReminders
     End Function
     Protected Function EndTable(etype As String) As String
         Dim hlink As String
-        hlink = "https://www.ccfrcville.org/default.aspx?dt=" & Session("EventDate").ToString
+        hlink = "https://www.ccfrcville.org/default.aspx?dt=" & CDate(EventDate.Text).ToString("MM/dd/yyyy")
         EndTable = "</table> </div> <p>The attached document contains a list of people attending this meeting.</p>"
-        If etype = "Dinner" Then EndTable = EndTable & "<p>To see the announcement for this meeting, <a href = http:\\ccfrcville.org?dt=" & Session("Eventdate").ToString & " >Click here.</a><p>"
+        If etype = "Dinner" Then EndTable += "<p>To see the announcement for this meeting, <a href ='https://ccfrcville.org/default.aspx?dt=" & Trim(CDate(EventDate.Text).ToString("MM/dd/yyyy")) & "' > Click here.</a> "
     End Function
     Protected Shared Function FinishMessage() As String
 
