@@ -100,7 +100,7 @@ Public Class EmailAttendees
             dr.Close()
         End Using
 
-        EMailAddresses = "webmaster@ccfrcville.org;jb_morton@live.com"
+        EMailAddresses = "webmaster@ccfrcville.org"
         SendEmail("Sample Name", Attachments, EMailAddresses)
 
         ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('Sample Email Sent')", True)

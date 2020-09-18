@@ -141,11 +141,12 @@ Public Class EMailReminders
                 dr.Close()
                 If i >= 1 Then SendEmail(Names, Meals, etype, GreetName, Attachments, EMailAddresses)
 
-                SendFinalEmail(Totalcnt, CntMember, "EmailReminders")
 
                 ' send email to show all emails sent
 
-                Me.ESent.Text = (Totalcnt - 1).ToString()
+                Me.ESent.Text = Totalcnt.ToString()
+                SendFinalEmail(Totalcnt, CntMember, "EmailReminders")
+
                 ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('All Emails Sent')", True)
 
 

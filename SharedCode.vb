@@ -194,6 +194,8 @@ Public Module SharedCode
             For i = 0 To ToEM.Length - 1
                 myMessage.To.Add(ToEM(i))
             Next
+        Else
+            Exit Function
         End If
 
         If Not String.IsNullOrEmpty(BccEmail) Then
@@ -227,7 +229,7 @@ Public Module SharedCode
             .Host = "m04.internetmailserver.net"
         }
         Try
-            'MailObj.Send(myMessage)
+            MailObj.Send(myMessage)
             If Not String.IsNullOrEmpty(BccEmail) Then
                 CntMember += BccM.Length
             Else
