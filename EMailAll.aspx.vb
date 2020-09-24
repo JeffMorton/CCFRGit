@@ -66,7 +66,7 @@ Public Class EamilAll
             SendEmail(Attachments, EmailAddresses, orgEmail)
         End If
 
-        Me.ESent.Text = Totalcnt.ToString
+        Me.ESent.Text = (Totalcnt.ToString
         SendFinalEmail(Totalcnt, CntMember, "Email All")
         ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('All Emails Sent')", True)
 

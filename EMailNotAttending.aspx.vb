@@ -41,8 +41,8 @@ Public Class EMailNotAttending
 
             If dr.HasRows Then
                 Do While dr.Read()
-                    cnta += 1
                     Attachments(cnta) = Server.MapPath("~/documents/") & dr("FileName").ToString
+                    cnta += 1
                 Loop
             End If
             dr.Close()
@@ -103,8 +103,8 @@ Public Class EMailNotAttending
             dr = cmd.ExecuteReader
             If dr.HasRows Then
                 Do While dr.Read()
-                    cnta += 1
                     Attachments(cnta) = Server.MapPath("~/documents/") & dr("FileName").ToString
+                    cnta += 1
                 Loop
             End If
             dr.Close()

@@ -239,7 +239,7 @@ Public Module SharedCode
         Catch
             SendMessage = 0
         End Try
-
+        Return 0
     End Function
 
     Public Function SendMessageNA(MessageSubject As String, MessageBody As String, ToEmail As String, FromEmail As String, BccEmail As String, IsHtml As Boolean) As Integer
