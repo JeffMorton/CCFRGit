@@ -55,47 +55,18 @@ Public Class EventSignUp
     Protected Sub CancelRes(ByVal sender As Object, ByVal e As EventArgs)
         Dim confirmValue As String = Request.Form("confirm_value")
         If confirmValue = "Yes" Then
-            Dim cnt As Integer = 0
-            Dim strSQl As String = "select memberAttend,spouseAttend from Membersignup where memberid =@memID and EventID=@evID"
-            Using cmd As New SqlCommand(strSQl, conn)
-                cmd.Parameters.AddWithValue("@MemID", Session("UserID"))
-                cmd.Parameters.AddWithValue("@evID", Session("EventID"))
-                Dim DR As SqlDataReader
-                DR = cmd.ExecuteReader
-                If DR.HasRows Then
-                    DR.Read()
-                    If CBool(DR("memberAttend")) Then cnt += 1
-                    If CBool(DR("SpouseAttend")) Then cnt += 1
-                End If
-                DR.Close()
-            End Using
-            strSQl = "Delete Membersignup where memberid =@memID and EventID=@evID"
-            Using cmd As New SqlCommand(strSQl, conn)
-                cmd.Parameters.AddWithValue("@MemID", Session("UserID"))
-                cmd.Parameters.AddWithValue("@evID", Session("EventID"))
+            Using cmd As New SqlCommand("CancelReservation", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.AddWithValue("@eventID", CInt(Session("EventID")))
+                cmd.Parameters.AddWithValue("@UserID", CInt(Session("UserID")))
+                cmd.Parameters.Add("@Credit", sqlDbType:=SqlDbType.Money).Direction = ParameterDirection.Output
                 cmd.ExecuteNonQuery()
+                Session("MealsOwed") = cmd.Parameters("@Credit").Value
             End Using
-            strSQl = "delete guestsignup where memberid =@memID and EventID=@evID "
-            Using cmd As New SqlCommand(strSQl, conn)
-                cmd.Parameters.AddWithValue("@MemID", Session("UserID"))
-                cmd.Parameters.AddWithValue("@evID", Session("EventID"))
-                cnt += cmd.ExecuteNonQuery()
-            End Using
-            Dim Credit As Double = cnt * CDbl(Session("MealCost"))
-            strSQl = "update Member set MealsOwed = MealsOwed - @Credit  where id =@memID  "
-            Using cmd As New SqlCommand(strSQl, conn)
-                cmd.Parameters.AddWithValue("@MemID", Session("UserID"))
-                cmd.Parameters.AddWithValue("@Credit", Credit)
-                cmd.ExecuteNonQuery()
-            End Using
-            Session("MealsOwed") = Credit
-            Dim indx As Integer
-
-            indx = MemNameDLL.SelectedIndex
-            Debug.Print(CStr(indx))
-            MemNameDLL_Index_Changed("", e)
-            RecordError("MemberSignup", "Reservation Canceled", " ", conn)
+            RecordError("EventSignup", "Reservation Canceled", " ", conn)
+            Response.Redirect("Eventsignup.aspx")
         Else
+            'ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('Rservation not Canceled)", True)
             Dim myScript As String = "window.alert('Registration not canceled.');"
             ClientScript.RegisterStartupScript(Me.GetType(), "myScript", myScript, True)
         End If

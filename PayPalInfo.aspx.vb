@@ -6,7 +6,6 @@ Public Class PayPalInfo
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         conn = New SqlConnection(GetConnectionString(True, False))
         conn.Open()
-        Session("EventID") = 1220
         Using cmd As New SqlCommand("FillPPTranslog", conn)
             cmd.CommandType = CommandType.StoredProcedure
             cmd.ExecuteNonQuery()

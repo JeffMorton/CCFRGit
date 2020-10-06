@@ -66,7 +66,7 @@ Public Class EamilAll
             SendEmail(Attachments, EmailAddresses, orgEmail)
         End If
 
-        Me.ESent.Text = (Totalcnt.ToString
+        Me.ESent.Text = (Totalcnt.ToString)
         SendFinalEmail(Totalcnt, CntMember, "Email All")
         ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('All Emails Sent')", True)
 
@@ -124,13 +124,6 @@ Public Class EamilAll
         Dim FromEmail As String = orgEmail
 
         Totalcnt += SendMessage(msgSubject, msgBody, "reservations@ccfrcville.org", FromEmail, emailaddresses, True, attachments, CntMember)
-
-
-
-
-
-
-
 
     End Sub
     Protected Sub OnConfirm(sender As Object, e As EventArgs)

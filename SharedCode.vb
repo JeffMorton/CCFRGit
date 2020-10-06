@@ -120,11 +120,13 @@ Public Module SharedCode
         If HttpContext.Current.Request.IsLocal = True And CBool(System.Web.HttpContext.Current.Session("Debug")) = True Then
             xDebug = True
             System.Web.HttpContext.Current.Session("Loggedin") = True
-            System.Web.HttpContext.Current.Session("UserID") = 3487
-            System.Web.HttpContext.Current.Session("FullName") = "Test Member"
-            System.Web.HttpContext.Current.Session("UserName") = "Test Member"
+            If CBool(System.Web.HttpContext.Current.Session("Admin")) = False Then
+                System.Web.HttpContext.Current.Session("UserID") = 3487
+                System.Web.HttpContext.Current.Session("FullName") = "Test Member"
+                System.Web.HttpContext.Current.Session("UserName") = "Test Member"
+            End If
         End If
-        If xDebug Then
+            If xDebug Then
             GetConnectionString = ConfigurationManager.ConnectionStrings("CCFRDataConnectionString").ToString()
             System.Web.HttpContext.Current.Session("conn") = GetConnectionString
         Else
@@ -239,7 +241,7 @@ Public Module SharedCode
         Catch
             SendMessage = 0
         End Try
-        Return 0
+
     End Function
 
     Public Function SendMessageNA(MessageSubject As String, MessageBody As String, ToEmail As String, FromEmail As String, BccEmail As String, IsHtml As Boolean) As Integer

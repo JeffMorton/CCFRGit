@@ -9,8 +9,8 @@ Public Class Defaultc
         If Request.IsSecureConnection = False Then
             Response.Redirect("https://ccfrcville.org/default.aspx")
         End If
-        'Session("Debug") = True
-
+        Session("Debug") = True
+        Session("Admin") = False
         Dim strInfo As String = Request.QueryString("dt")
         Session("test") = "Point 0"
 

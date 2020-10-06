@@ -59,10 +59,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2019 13:33:30</publishTime>
     </File>
     <File Include="bin/CCFRW19.dll">
-      <publishTime>09/19/2020 14:23:34</publishTime>
+      <publishTime>10/06/2020 09:32:27</publishTime>
     </File>
     <File Include="bin/CCFRW19.pdb">
-      <publishTime>09/19/2020 14:23:34</publishTime>
+      <publishTime>10/06/2020 09:32:27</publishTime>
     </File>
     <File Include="bin/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:28</publishTime>
@@ -239,16 +239,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/10/2020 15:16:36</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Debugger.Interop.11.0.dll">
-      <publishTime>09/17/2020 09:30:43</publishTime>
+      <publishTime>09/29/2020 13:42:47</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Debugger.InteropA.dll">
-      <publishTime>09/17/2020 09:30:43</publishTime>
+      <publishTime>09/29/2020 13:42:47</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.GraphModel.dll">
       <publishTime>07/07/2015 00:51:38</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.ManagedInterfaces.dll">
-      <publishTime>08/10/2020 15:16:00</publishTime>
+      <publishTime>09/29/2020 13:42:45</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.OLE.Interop.dll">
       <publishTime>08/10/2020 15:15:20</publishTime>
@@ -272,7 +272,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/10/2020 15:15:20</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.TemplateWizardInterface.dll">
-      <publishTime>08/10/2020 15:16:00</publishTime>
+      <publishTime>09/29/2020 13:42:45</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.TextManager.Interop.10.0.dll">
       <publishTime>08/10/2020 15:15:20</publishTime>
@@ -497,7 +497,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/10/2020 15:15:20</publishTime>
     </File>
     <File Include="bin/WebForms_Basic.xml">
-      <publishTime>09/19/2020 14:23:34</publishTime>
+      <publishTime>10/06/2020 09:32:27</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -965,7 +965,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 11:19:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/19/2020 14:23:52</publishTime>
+      <publishTime>10/06/2020 09:33:06</publishTime>
     </File>
   </ItemGroup>
 </Project>
