@@ -786,7 +786,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AGuest.rdlc" />
-    <EmbeddedResource Include="Attendence.rdlc" />
+    <EmbeddedResource Include="Attendance.rdlc" />
     <EmbeddedResource Include="deposit.rdlc" />
     <EmbeddedResource Include="EventCard.rdlc" />
     <EmbeddedResource Include="GuestNameTags.rdlc" />

@@ -20,7 +20,7 @@ Public Class Attendence
         End Try
         ReportViewer1.Visible = True
         ReportViewer1.ProcessingMode = ProcessingMode.Local
-        ReportViewer1.LocalReport.ReportPath = "Attendence.rdlc"
+        ReportViewer1.LocalReport.ReportPath = "Attendance.rdlc"
         ReportViewer1.LocalReport.DataSources.Clear()
         ReportViewer1.ShowExportControls = True
         etype = Request.QueryString("Type")
@@ -80,7 +80,7 @@ Public Class Attendence
 
     End Sub
     Private Sub Rrender() Handles PDF.Click
-        RenderReport(ReportViewer1, "Attendence.pdf", Server.MapPath("~/Reports/"))
-        Response.Redirect("~/reports/attendence.pdf")
+        RenderReport(ReportViewer1, "Attendance.pdf", Server.MapPath("~/Reports/"))
+        Response.Redirect("~/reports/attendance.pdf")
     End Sub
 End Class

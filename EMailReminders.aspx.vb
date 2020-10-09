@@ -33,7 +33,7 @@ Public Class EMailReminders
             End Using
             ReportViewer1.Visible = False
             ReportViewer1.ProcessingMode = ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = "Attendence.rdlc"
+            ReportViewer1.LocalReport.ReportPath = "Attendance.rdlc"
             ReportViewer1.LocalReport.DataSources.Clear()
 
             ReportViewer1.ShowExportControls = True
@@ -70,7 +70,7 @@ Public Class EMailReminders
 
             ReportViewer1.LocalReport.SetParameters(param)
 
-            RenderReport(ReportViewer1, "Attendence.pdf", Server.MapPath("~/Reports/"))
+            RenderReport(ReportViewer1, "Attendance.pdf", Server.MapPath("~/Reports/"))
 
 
             Me.ESent.Text = "0"
@@ -89,7 +89,7 @@ Public Class EMailReminders
         Dim j As Integer
         Dim EMailAddresses As String = ""
 
-        Attachments(0) = Server.MapPath("~/reports/") & "Attendence.pdf"
+        Attachments(0) = Server.MapPath("~/reports/") & "Attendance.pdf"
         Using cmd As New SqlCommand("select * from attachments where eventid =@Eventid", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
             Dim dr As SqlDataReader
@@ -194,7 +194,7 @@ Public Class EMailReminders
 
 
             EmailGreeting = "<p>Dear " & Nam & ",</p>" _
-            & "<p>We would like to remind you that the next ccfr meeting is " & dt & " via Zoom</p>" _
+            & "<p>We would like to remind you that the next CCFR meeting is " & dt & " via Zoom</p>" _
              & "Our records indicate that you have the following" _
             & " reservations:</p> <div style=""margin-left:50px""> <table style=""width: 80%"" >" _
              & "    <tr>" _

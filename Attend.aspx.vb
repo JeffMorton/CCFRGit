@@ -15,7 +15,7 @@ Public Class Attend
 
         ReportViewer1.Visible = True
         ReportViewer1.ProcessingMode = ProcessingMode.Local
-        ReportViewer1.LocalReport.ReportPath = "Attendence.rdlc"
+        ReportViewer1.LocalReport.ReportPath = "Attendance.rdlc"
         ReportViewer1.LocalReport.DataSources.Clear()
         ReportViewer1.ShowExportControls = True
 

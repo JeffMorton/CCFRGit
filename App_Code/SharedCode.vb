@@ -226,9 +226,9 @@ Public Module SharedCode
             Else
                 CntMember += ToEM.Length
             End If
-            SendMessage = 1
+            Return 1
         Catch
-            SendMessage = 0
+            Return 0
         End Try
 
     End Function
