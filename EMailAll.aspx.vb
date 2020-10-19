@@ -7,7 +7,7 @@ Public Class EamilAll
     'This pages provides a way for the administrator to send an email to all members.  
     'This page includes CKEditor rich text editor and emails are html enabled.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionString(False, False))
+        conn = New SqlConnection(GetConnectionString(True, False))
         conn.Open()
 
         If Not IsPostBack Then
@@ -28,8 +28,8 @@ Public Class EamilAll
             dr = cmd.ExecuteReader
             If dr.HasRows Then
                 Do While dr.Read()
-                    cnta += 1
                     Attachments(cnta) = Server.MapPath("~/documents/") & dr("FileName").ToString
+                    cnta += 1
                 Loop
             End If
             dr.Close()
@@ -82,8 +82,8 @@ Public Class EamilAll
 
             If dr.HasRows Then
                 Do While dr.Read()
-                    cnta += 1
                     Attachments(cnta) = Server.MapPath("~/documents/") & dr("FileName").ToString
+                    cnta += 1
                 Loop
             End If
             dr.Close()
