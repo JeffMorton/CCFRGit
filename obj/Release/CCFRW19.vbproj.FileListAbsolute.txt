@@ -362,3 +362,4 @@ D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.vbproj.CopyComplete
 D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.dll
 D:\Documents\GitHub\CCFRGit\obj\Release\WebForms_Basic.xml
 D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.pdb
+D:\Documents\GitHub\CCFRGit\obj\Release\CCFRW19.vbprojAssemblyReference.cache
