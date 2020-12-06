@@ -43,7 +43,7 @@
                         <asp:TableCell>
 
                             <asp:Label ID="Label2"  style="text-align:Right" width="100px" runat="server" Text="Event Date:"></asp:Label>
-                            <asp:TextBox ID="EventDate" width="90px" Text='<%# Bind("EventDate", "{0:d}") %>' runat="server"></asp:TextBox>
+                            <asp:TextBox ID="EventDate" width="90px" ReadOnly="true" Text='<%# Bind("EventDate", "{0:d}") %>' runat="server"></asp:TextBox>
                         </asp:TableCell>
                        <asp:TableCell>
                             <asp:Label ID="Label13"  style="text-align:Right" width="150px" runat="server" Text="Postponed To Date:"></asp:Label>
