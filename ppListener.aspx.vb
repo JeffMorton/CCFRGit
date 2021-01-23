@@ -19,7 +19,7 @@ Public Class PpListener
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("conn") = ""
-        sqlConnection.ConnectionString = GetConnectionString(True, False)
+        sqlConnection.ConnectionString = GetConnectionString(True, True)
         sqlConnection.Open()
         Dim uriLive As Uri = New Uri("https://www.paypal.com/cgi-bin/webscr")
         Dim req As HttpWebRequest = CType(WebRequest.Create(uriLive), HttpWebRequest)
@@ -44,8 +44,8 @@ Public Class PpListener
         Dim cmplete As String = ""
         Dim reusedTrn As Boolean = False
 
-        'strResponse = "VERIFIED"
-        'strRequest = "mc_gross=104.00&protection_eligibility=Eligible&address_status=confirmed&item_number1=&payer_id=AGVU3HP4HSXXS&address_street=2624 S Bennington Rd&payment_date=10:12:50 Jun 10, 2020 PDT&payment_status=Completed&charset=US-ASCII&address_zip=22901&first_name=Jeffrey&mc_fee=0.52&address_country_code=US&address_name=Jeffrey Morton&notify_version=3.9&custom=83A1215A0ATrueA-43.0000&payer_status=verified&business=ccfr1t@gmail.com&address_country=United States&num_cart_items=1&address_city=Charlottesville&verify_sign=AzmX1OI5lYLqA7iiXllpDssSGlogADQfnQPMi1KIYfESvVUE3oOP7sQY&payer_email=jb_morton@live.com&txn_id=2A975150S8324994A&payment_type=instant&last_name=Morton&item_name1=CCFR Dues&address_state=VA&receiver_email=ccfr1t@gmail.com&payment_fee=0.52&shipping_discount=0.00&quantity1=1&insurance_amount=0.00&receiver_id=LPJCYQKPUSG4L&txn_type=cart&discount=0.00&mc_gross_1=103.00&mc_currency=USD&residence_country=US&shipping_method=Default&transaction_subject=&payment_gross=103.00&ipn_track_id=ae49c8f7c68fd&cmd=_notify-validate"
+        strResponse = "VERIFIED"
+        strRequest = "mc_gross=60.00&protection_eligibility=Eligible&address_status=confirmed&item_number1=&payer_id=V9EQ8VLLNSVPL&address_street=1311 Penfield Lane&payment_date=17:31:36 Nov 18, 2020 PST&payment_status=Completed&charset=US-ASCII&address_zip=22901&first_name=Mary Jo&mc_fee=1.62&address_country_code=US&address_name=Mary Jo Bracken&notify_version=3.9&custom=3487A1233A0ATrueA0&payer_status=unverified&business=ccfr1t@gmail.com&address_country=United States&num_cart_items=1&address_city=charlottesville&verify_sign=AuO8X8Ho2w0sCxMVEOpk0b3r4hNiAM.79AlJDqLlxkuO9UJiUMItv8.b&payer_email=bracken27@hotmail.com&txn_id=7P297996JK281205E&payment_type=instant&last_name=Bracken&address_state=VA&item_name1=CCFR Dues&receiver_email=ccfr1t@gmail.com&payment_fee=1.62&shipping_discount=0.00&quantity1=1&insurance_amount=0.00&receiver_id=LPJCYQKPUSG4L&txn_type=cart&discount=0.00&mc_gross_1=60.00&mc_currency=USD&residence_country=US&receipt_id=2714-2124-0706-0585&shipping_method=Default&transaction_subject=&payment_gross=60.00&ipn_track_id=96e3fbcd724bf&cmd=_notify-validate"
         If strResponse = "VERIFIED" Then
             Dim ppInfor() As String = Split(strRequest, "&")
             Dim i As Integer

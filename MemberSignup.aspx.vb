@@ -240,6 +240,9 @@ Public Class MemberSignup
             End If
             Session("Quantity") = cnt
             TotalCost = CDbl(cnt * CDbl(lbCost.Text))
+            If TotalCost = 0 And chkDues.Checked Then
+                Session("EventType") = "Dues Only"
+            End If
             If Me.chkDues.Checked Then
                 TotalCost += CDbl(Session("DuesOwed"))
                 Session("DuesIncluded") = True
@@ -410,7 +413,10 @@ Public Class MemberSignup
         Dim i As Integer = SendMessageNA("Reservation Canceled", StrMessage, MessageTo, "reservations@ccfrcville.org", "reservations@ccfrcville.org;webmaster@ccfrcville.org", True)
     End Sub
     Private Sub Review_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Review.Click
-        ComputeCost()
+        If ComputeCost() = False Then
+            Message.Text = "A Member must signup to register for a meeting"
+            Exit Sub
+        End If
         If Not (Session("EventType").ToString = "Dues Only") Then FormView1.UpdateItem(True)
         If TotalCost > 0 Then
             UpdateTempAccount()

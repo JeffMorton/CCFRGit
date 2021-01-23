@@ -202,6 +202,7 @@
     <Content Include="EMailReminders.aspx" />
     <Content Include="error.aspx" />
     <Content Include="EventCard.aspx" />
+    <Content Include="EventCount.aspx" />
     <Content Include="EventReview1.aspx" />
     <Content Include="EventSignUp.aspx" />
     <Content Include="EventTable.aspx" />
@@ -232,6 +233,17 @@
     </Content>
     <Content Include="dsGuestNameTags.xsc">
       <DependentUpon>dsGuestNameTags.xsd</DependentUpon>
+    </Content>
+    <Content Include="dsEventCount.xsc">
+      <DependentUpon>dsEventCount.xsd</DependentUpon>
+    </Content>
+    <None Include="dsEventCount.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEventCount.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dsEventCount.xss">
+      <DependentUpon>dsEventCount.xsd</DependentUpon>
     </Content>
     <None Include="dsGuestNameTags.xsd">
       <SubType>Designer</SubType>
@@ -437,6 +449,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSAttendence.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsEventCount.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEventCount.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsGuestNameTags.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -539,6 +556,13 @@
     <Compile Include="EventCard.aspx.vb">
       <DependentUpon>EventCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventCount.aspx.designer.vb">
+      <DependentUpon>EventCount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventCount.aspx.vb">
+      <DependentUpon>EventCount.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="EventReview1.aspx.designer.vb">
       <DependentUpon>EventReview1.aspx</DependentUpon>
@@ -789,6 +813,7 @@
     <EmbeddedResource Include="Attendance.rdlc" />
     <EmbeddedResource Include="deposit.rdlc" />
     <EmbeddedResource Include="EventCard.rdlc" />
+    <EmbeddedResource Include="EventCount.rdlc" />
     <EmbeddedResource Include="GuestNameTags.rdlc" />
     <EmbeddedResource Include="MailLabels.rdlc" />
     <EmbeddedResource Include="MealReport.rdlc" />

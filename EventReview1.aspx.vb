@@ -232,7 +232,7 @@ Public Class EventReview1
                     Session("Item1quantity") = 1
                 Else
                     Me.Msg.Text = "Nothing to Pay for."
-                    'Response.Redirect("EventRegistration")
+                    Response.Redirect("EventRegistration")
                 End If
 
             Else
@@ -347,9 +347,6 @@ Public Class EventReview1
         CostPer = CDbl(Session("MealCost"))
         '        sTotalCost = Format(NoAttend * CDbl(Session("MealCost")) + CDbl(Session("DuesOwed")) + CDbl(Session("MealsOwed")), "c")
 
-
-
-
         Dim sqlQuery0 As String = "SELECT FirstName, LastName, [E-Mail], ID FROM member WHERE   ID =@memid "
         Using cmd1 As New SqlCommand(sqlQuery0, sqlConnection)
             cmd1.Parameters.Add("@memid", SqlDbType.Int)
@@ -363,14 +360,11 @@ Public Class EventReview1
             dr1.Close()
         End Using
 
-
         Try
-
-
             If NoAttend > 0 Then
                 Dim strdat As String
                 Dim sqlQuery3 As String = "select Eventdate from Event where ID = @evid"
-                Using cmd3 As New SqlCommand(sqlQuery3, sqlConnection)
+                Using cmd3 As New SqlCommand(sqlQuery3, sqlconnection)
                     cmd3.Parameters.Add("@evid", SqlDbType.Int)
                     cmd3.Parameters("@evid").Value = evid
                     strdat = CDate(cmd3.ExecuteScalar).ToString("dddd, MMM d yyyy")
@@ -382,7 +376,7 @@ Public Class EventReview1
                     StrMessage += "<br/>"
                 End If
                 mSubject = "CCFR Reservation Confirmation"
-            ElseIf noattend = 0 And DuesPaid > 0 Then
+            ElseIf NoAttend = 0 And DuesPaid > 0 Then
                 StrMessage += "Your CCFR dues  of " & Format(DuesPaid, "c") & " is Paid<br />"
                 StrMessage += "The credit on your account was reduced by " & Format(DuesPaid, "c") & "<br />"
                 StrMessage += "Your total payment of " & Format(TotalCost, "c") & " is confirmed<br />"

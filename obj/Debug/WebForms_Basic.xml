@@ -839,6 +839,71 @@ Represents a strongly typed in-memory cache of data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
+<member name="T:CCFRW19.dsEventCount">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCount.MemEventCountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCount.MemEventCountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCount.MemEventCountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCountTableAdapters.MemEventCountTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCountTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.UpdateUpdatedRows(CCFRW19.dsEventCount,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.UpdateInsertedRows(CCFRW19.dsEventCount,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.UpdateDeletedRows(CCFRW19.dsEventCount,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.UpdateAll(CCFRW19.dsEventCount)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:CCFRW19.dsEventCountTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:CCFRW19.dsGuestNameTags">
 <summary>
 Represents a strongly typed in-memory cache of data.
@@ -1858,6 +1923,60 @@ To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
 <member name="F:CCFRW19.EventCard._ReportViewer1">
+<summary>
+ReportViewer1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.EventCount._HeadLabel">
+<summary>
+HeadLabel control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.EventCount._Label1">
+<summary>
+Label1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.EventCount._StartDate">
+<summary>
+StartDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.EventCount._Display">
+<summary>
+Display control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.EventCount._ScriptManager1">
+<summary>
+ScriptManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.EventCount._ReportViewer1">
 <summary>
 ReportViewer1 control.
 </summary>
