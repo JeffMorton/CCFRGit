@@ -89,6 +89,9 @@
                         <asp:TableCell>
                             <asp:Label ID="Label5" style="text-align:Right" width="100px" runat="server" Text="Meal 1:"></asp:Label>
                             <asp:Textbox ID="Meal1" width="200px" Text='<%# Bind("Meal1") %>' runat="server"></asp:Textbox>
+                           <strong></strong> <asp:RequiredFieldValidator ControlToValidate="Meal1" 
+            ID="RequiredFieldValidator1" runat="server" 
+            ErrorMessage="Meal 1 cannot be blank"></asp:RequiredFieldValidator></strong>
                         </asp:TableCell>
                         <asp:TableCell>
                             <asp:Dropdownlist ID="Meal1Category" runat="server" Text='<%# Bind("Meal1Category") %>' 

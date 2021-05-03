@@ -115,7 +115,7 @@ Public Module SharedCode
 
     Public Function GetConnectionString(PrimarySource As Boolean, xDebug As Boolean) As String
         'used on adinistrative part of website
-        'If Primary source is true, the page can be run without loggin in.  Fakllse requires logiging in
+        'If Primary source is true, the page can be run without loggin in.  False requires logging in
         'if xDebug is true, the connetion string returned points to the development database other wise, it points to the production database
         If HttpContext.Current.Request.IsLocal = True And CBool(System.Web.HttpContext.Current.Session("Debug")) = True Then
             xDebug = True

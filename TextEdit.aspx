@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/admin.Master" CodeBehind="TextEdit.aspx.vb" Inherits="CCFRW19.TextEdit" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" validateRequest="false" MasterPageFile ="~/admin.Master" CodeBehind="TextEdit.aspx.vb" Inherits="CCFRW19.TextEdit" %>
     <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  <meta charset="utf-8">

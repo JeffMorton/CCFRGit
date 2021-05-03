@@ -296,7 +296,7 @@ Public Class MemberSignup
         Me.FormView1.ChangeMode(FormViewMode.Edit)
         If e.CommandName = "Insert" AndAlso Page.IsValid Then
             Dim control As Control
-            If (Not (GuestGridView.FooterRow) Is Nothing) Then
+            If ((GuestGridView.FooterRow) IsNot Nothing) Then
                 control = GuestGridView.FooterRow
             Else
                 control = GuestGridView.Controls(0).Controls(0)

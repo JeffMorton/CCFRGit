@@ -106,7 +106,10 @@ Public Class EventTable
             MainPanel.Visible = True
             Exit Sub
         End If
-
+        Dim meal1 As String = CType(Me.fvEventTable.FindControl("Meal1"), TextBox).Text
+        If String.IsNullOrEmpty(meal1) Then
+            CType(Me.fvEventTable.FindControl("Meal1"), TextBox).Text = "TBA"
+        End If
         Dim SBString As String = Me.SpeakerBio.Text
         fvEventTable.UpdateItem(True)
         Using cmd As New SqlCommand("update Event set SpeakerBio = @SpeakerBio where id = @EventID", conn)
