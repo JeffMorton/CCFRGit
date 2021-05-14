@@ -5,7 +5,7 @@ Public Class EventTable
     Dim conn As New SqlConnection
     'This page allows the administrator to create or edit events.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionString(False, False))
+        conn = New SqlConnection(GetConnectionString(True, True))
         conn.Open()
         DateDDL.ConnectionString = conn.ConnectionString
         dsEvent.ConnectionString = conn.ConnectionString
@@ -110,6 +110,18 @@ Public Class EventTable
         If String.IsNullOrEmpty(meal1) Then
             CType(Me.fvEventTable.FindControl("Meal1"), TextBox).Text = "TBA"
         End If
+        Try
+            Dim eDate As String = CType(Me.fvEventTable.FindControl("Altdate"), TextBox).Text
+            If Not IsDate(eDate) And Not String.IsNullOrEmpty(eDate) Then
+                ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('Invalid Postponed To Date')", True)
+                MainPanel.Visible = True
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MainPanel.Visible = True
+            Exit Sub
+
+        End Try
         Dim SBString As String = Me.SpeakerBio.Text
         fvEventTable.UpdateItem(True)
         Using cmd As New SqlCommand("update Event set SpeakerBio = @SpeakerBio where id = @EventID", conn)
@@ -128,6 +140,15 @@ Public Class EventTable
     End Sub
     Protected Sub CreateEvent(sender As Object, e As EventArgs) Handles CreateNewEvent.Click
         Dim ID As Integer
+        Dim eDate As String = Me.NewEventDate.Text
+
+        If Not IsDate(eDate) Then
+            ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('Invalid Event date')", True)
+            Me.MainPanel.Visible = False
+            Me.AddEventPanel.Visible = True
+            Exit Sub
+        End If
+
         Using cmd As New SqlCommand("CreateNewEvent", conn)
             cmd.Parameters.AddWithValue("@Eventdate", NewEventDate.Text)
             cmd.CommandType = CommandType.StoredProcedure

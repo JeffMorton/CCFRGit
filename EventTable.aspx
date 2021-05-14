@@ -216,7 +216,7 @@
       ,[SaveTheDate]
       ,[ShortSpeakerBio]
       ,[Preface]
-      ,[Eventdate] as altdate
+      ,[altdate]
   FROM [dbo].[Event] where id = @EID"
             Updatecommand="UPDATE [dbo].[Event]
    SET [EventDate] = @EventDate
