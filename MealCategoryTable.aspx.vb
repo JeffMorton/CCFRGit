@@ -15,7 +15,7 @@ Public Class MealCategoryTable
 
         If e.CommandName = "Insert" Then
             Dim control As Control
-            If (Not (MealCatGridView.FooterRow) Is Nothing) Then
+            If (MealCatGridView.FooterRow IsNot Nothing) Then
                 control = MealCatGridView.FooterRow
             Else
                 control = MealCatGridView.Controls(0).Controls(0)
@@ -41,7 +41,13 @@ Public Class MealCategoryTable
                 ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alert", "alertuser('MealCategory can only be deleted if it has never been used.')", True)
                 e.Cancel = True
             Else
+                Using cmd1 As New SqlCommand("Delete MealCategroy where ID=@ID", conn)
+                    cmd1.Parameters.AddWithValue("@ID", rID)
+                    cmd1.ExecuteNonQuery()
+                End Using
             End If
         End Using
+
+
     End Sub
 End Class

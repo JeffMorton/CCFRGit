@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/admin.Master" CodeBehind="MemberUpdate.aspx.vb" Inherits="CCFRW19.MemberUpdate" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/admin.Master" CodeBehind="MemberUpdatenew.aspx.vb" Inherits="CCFRW19.MemberUpdate" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 
@@ -87,29 +87,8 @@
                              <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="Cellphone"
                                  Mask="999-999-9999"
                                  ClearMaskOnLostFocus="False" />
-                         </asp:TableCell></asp:TableRow><asp:TableRow>
-                  <asp:TableCell>
-                      <asp:Label ID="Label9" runat="server"  Text="Prog Comm:"  width="105px" CssClass="pNormalTextRight" />
-                  </asp:TableCell><asp:TableCell>
-                      <asp:DropDownList ID="ProgramCommittee" width="195px" selectedValue='<%# Bind("ProgramCommittee")  %>' runat="server"
-                            DataSourceID="ProgramCommitteeSource"
-                            DataValueField="Position"
-                            DataTextField="Position">
-
-                      </asp:DropDownList>
-                   </asp:TableCell></asp:TableRow>
-              <asp:TableRow>
-                  <asp:TableCell>
-                      <asp:Label ID="Label19" runat="server"  Text="Lunch Comm:"  width="105px" CssClass="pNormalTextRight" />
-                  </asp:TableCell><asp:TableCell>
-                      <asp:DropDownList ID="LunchCommittee" width="195px" selectedValue='<%# Bind("LunchCommittee")  %>' runat="server"
-                            DataSourceID="LunchCommitteeSource"
-                            DataValueField="Position"
-                            DataTextField="Position">
-
-                      </asp:DropDownList>
-                   </asp:TableCell></asp:TableRow>
-              <asp:TableRow>
+                         </asp:TableCell></asp:TableRow>
+    <asp:TableRow>
                   <asp:TableCell>
                       <asp:Label ID="Label12" runat="server" Text="Position:" width="105px" CssClass="pNormalTextRight" />
                   </asp:TableCell><asp:TableCell>
@@ -118,7 +97,15 @@
                             DataValueField="OfficeName"
                             DataTextField="OfficeName">
                       </asp:DropDownList>
-                   </asp:TableCell></asp:TableRow><asp:TableRow>
+                   </asp:TableCell></asp:TableRow>
+                      
+              <asp:TableRow>
+                  <asp:TableCell>
+                       <asp:Button ID="Committees" runat="server" Text="Committees" onclick="MemberCommittees" Width="120px" height="30px" />
+
+                  </asp:TableCell></asp:TableRow><asp:TableRow>   
+              
+             
                   <asp:TableCell>
                       <asp:Label ID="Label14" runat="server" Text="New Member:" width="105px" CssClass="pNormalTextRight" />
                       </asp:TableCell><asp:TableCell>
@@ -130,7 +117,7 @@
                       </asp:TableCell><asp:TableCell>
                       <asp:CheckBox ID="Admin" checked='<%# Bind("Admin")  %>' runat="server" />
                       
-                           <asp:Label ID="Label" runat="server" Text="Print NameTag:" width="115px" CssClass="pNormalTextRight" />
+                           <asp:Label ID="Label" runat="server" Text="Print Nametag:" width="115px" CssClass="pNormalTextRight" />
                             <asp:CheckBox ID="PrintNameTag" checked='<%# Bind("PrintNameTag")  %>' runat="server" />
                         </asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel><div style ="margin-left:355px; margin-top:-285px" >     
  
@@ -166,19 +153,21 @@
                                           </asp:TableCell><asp:TableCell>
                                               <asp:TextBox ID="Email" runat="server" width="190px" Text='<%# Bind("SpouseEMail") %>'></asp:TextBox>
                                           </asp:TableCell></asp:TableRow><asp:TableRow>
-                         <asp:TableCell>
-                             <asp:Label ID="Label8" runat="server" Text="Cell:" width="105px" CssClass="pNormalTextRight" />
-                         </asp:TableCell><asp:TableCell>
-                             <asp:TextBox ID="SCellphone" runat="server" Width="190px" Text='<%# Bind("SCellPhone") %>'></asp:TextBox>
-                             <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="SCellphone"
-                                 Mask="999-999-9999"
-                                 ClearMaskOnLostFocus="False" />
-                         </asp:TableCell></asp:TableRow><asp:TableRow>
-                                          <asp:TableCell>
-                                            <asp:Label ID="Label" runat="server" Text="Print Name Tag:" width="115px" CssClass="pNormalTextRight" />
-                                        </asp:TableCell><asp:TableCell>
-                                             <asp:CheckBox ID="SpousePrintNameTag" checked='<%# Bind("SpousePrintNameTag")  %>' runat="server" />
+                                         <asp:TableCell>
+                                             <asp:Label ID="Label8" runat="server" Text="Cell:" width="105px" CssClass="pNormalTextRight" />
+                                         </asp:TableCell><asp:TableCell>
+                                             <asp:TextBox ID="SCellphone" runat="server" Width="190px" Text='<%# Bind("SCellPhone") %>'></asp:TextBox>
+                                             <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="SCellphone"
+                                                 Mask="999-999-9999"
+                                                 ClearMaskOnLostFocus="False" />
+                                         </asp:TableCell></asp:TableRow>
+                                      <asp:TableRow><asp:TableCell>
+                                              <asp:Button ID="SCommittees" runat="server" Text="Committees" onclick="SpouseCommittees" Width="120px" height="30px"/>  </asp:TableCell></asp:TableRow>
+                                      <asp:TableRow>
+                                         <asp:TableCell>
+                                      <asp:Label ID="Label9" runat="server" Text="Print Nametag:" width="115px" CssClass="pNormalText" />  </asp:TableCell><asp:TableCell> <asp:CheckBox ID="SpousePrintNameTag" checked='<%# Bind("SpousePrintNameTag")  %>' runat="server" />
                                         </asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel></div><br/><br/><asp:Panel BorderStyle="Groove" BorderColor="Black" Height="280px" Width =" 580px"  BackColor="wheat" runat = "server">
+
          <asp:FormView ID="AddressForm" runat="server" DataKeyNames="ID">
              <HeaderTemplate>
                  <asp:Label ID="headermember" runat="server" Text="General Information" Width=" 600px"   CssClass="pHeader2"></asp:Label><br>

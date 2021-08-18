@@ -29,17 +29,15 @@ Public Class aRoster
 
         strSQL = "select mffullname + ', ' + position from member inner join offices on member.position = offices.officename where member.Position <> 'Member' and position <> 'Director' order by officeorder"
         Dim col1 As String = CreateList(strSQL)
-        col1 += "<br /><br /><h5>Membership Committee</h5>" & "Gene Ecton Davis, Chair"
-        col1 += "<br /><br /><h5>Financial Review Committee</h5>" & "William Adams, Chair<br />Joanne Blakemore"
+        col1 += "<br /><br /><h5>Membership Committee</h5>" & "Lesley McCowen, Chair"
+        col1 += "<br /><br /><h5>Financial Review Committee</h5>" & "Paul Sartori   , Chair<br />Joanne Blakemore"
         col1 += "<br /><br /><h5>Administrator</h5>" & CStr(Info("Administrator"))
         param(1) = New ReportParameter("Officers", col1)
         strSQL = "select mffullname  from member where  position = 'Director' or position in  (select officename from offices where officeorder between 100 and 550) order by lastname,firstname"
         param(2) = New ReportParameter("Directors", CreateList(strSQL))
-        strSQL = "select mffullname +', ' + 'Chair' as mffullname ,lastname,firstname, 1 as pos  from member where  programcommittee = 'Chair'  union all " _
-            & "select mffullname ,lastname,firstname,2 from member where  programcommittee = 'Member' order by pos,lastname,firstname"
+        strSQL = "select mffullname ,committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='ProgramCommittee' and committees.position='member'  union all select mffullname + ', Chair',committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='ProgramCommittee' and committees.position='chair' order by position ,member.lastname "
         Dim col3 As String = CreateList(strSQL)
-        strSQL = "select mffullname +', ' + 'Chair' as mffullname ,lastname,firstname, 1 as pos  from member where  Lunchcommittee = 'Chair'  union all " _
-            & "select mffullname ,lastname,firstname,2 from member where  Lunchcommittee = 'Member' order by pos,lastname,firstname"
+        strSQL = "select mffullname ,committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='LunchCommittee' and committees.position='member'  union all select mffullname + ', Chair',committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='LunchCommittee' and committees.position='chair' order by position ,member.lastname "
         col3 += "<br /><h5>Luncheon Committee</h5>" & CreateList(strSQL)
         param(3) = New ReportParameter("PC", col3)
         ReportViewer1.LocalReport.SetParameters(param)

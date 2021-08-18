@@ -10,8 +10,8 @@ Public Class Admin1
         If Request.IsSecureConnection = False Then
             Response.Redirect("https://ccfrcville.org/Admin.aspx")
         End If
-        Session("Debug") = True
-        Session("Admin") = True
+        Session("Debug") = False
+        'Session("Admin") = True
         Session("conn") = GetConnectionString(True, False)
         If CBool(Session("Loggedin")) = True Then Response.Redirect("AdminStart.aspx")
         Me.Form.DefaultFocus = Login1.FindControl("Username").ClientID

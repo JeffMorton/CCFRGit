@@ -115,7 +115,7 @@ Public Module SharedCode
 
     Public Function GetConnectionString(PrimarySource As Boolean, xDebug As Boolean) As String
         'used on adinistrative part of website
-        'If Primary source is true, the page can be run without loggin in.  False requires logging in
+        'If Primary source is true, the page can be run without logging in.  False requires logging in
         'if xDebug is true, the connetion string returned points to the development database other wise, it points to the production database
         If HttpContext.Current.Request.IsLocal = True And CBool(System.Web.HttpContext.Current.Session("Debug")) = True Then
             xDebug = True
@@ -126,7 +126,7 @@ Public Module SharedCode
                 System.Web.HttpContext.Current.Session("UserName") = "Test Member"
             End If
         End If
-            If xDebug Then
+        If xDebug Then
             GetConnectionString = ConfigurationManager.ConnectionStrings("CCFRDataConnectionString").ToString()
             System.Web.HttpContext.Current.Session("conn") = GetConnectionString
         Else
@@ -299,4 +299,26 @@ Public Module SharedCode
         SendMessage("Final Email from " & EmailSource, MsgBody, "Webmaster@ccfrcville.org", "reservatation@ccfrcville.org", "", True, Attach, 0)
 
     End Sub
+
+    Public Function CreateList(strSQL As String, conn As SqlConnection) As String
+        Dim command As SqlCommand = New SqlCommand(strSQL, conn)
+
+        Dim lst As String = ""
+        Dim reader As SqlDataReader = command.ExecuteReader()
+
+        If reader.HasRows Then
+            Do While reader.Read()
+                lst += CStr(reader.GetString(0)) & "<br/>"
+            Loop
+        End If
+
+        reader.Close()
+        CreateList = Left(lst, Len(lst) - 5)
+    End Function
+
+    Public Function CreateCommitteeSQL(com As String) As String
+        Dim strSQL As String = "select mffullname ,committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='" & com & "' and committees.position='member'  union all select mffullname + ', Chair',committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='" & com & "' and committees.position='chair' order by position ,member.lastname "
+        CreateCommitteeSQL = strSQL
+    End Function
+
 End Module

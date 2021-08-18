@@ -41,10 +41,10 @@
      <Headertemplate><span class="pHeader1"  style ="text-align:center"  >Luncheon Committee</span></Headertemplate>
     </asp:DataList><br />
 <span class="pHeader1"  style ="text-align:center"  >Membership Committee</span><br />
-           <asp:Label ID="Label1" runat="server" Text="Gene Ecton Davis, Chair"></asp:Label><br />
+           <asp:Label ID="Label1" runat="server" Text="Lesley McCowen, Chair"></asp:Label><br />
 <br />
 <span class="pHeader1"  style ="text-align:center"  >Financial Review Committee</span><br />
-           <asp:Label ID="Label2" runat="server" Width ="250px" Text="William Adams, Chair"></asp:Label><asp:Label ID="Label3" runat="server" Text="Joanne Blakemore"></asp:Label><br /><br />
+           <asp:Label ID="Label2" runat="server" Width ="250px" Text="Paul Sartori, Chair"></asp:Label><asp:Label ID="Label3" runat="server" Text="Joanne Blakemore"></asp:Label><br /><br />
 <span class="pHeader1"  style ="text-align:center"  >Administrator</span><br />
            <asp:Label ID="Administrator" runat="server" Text="Label"></asp:Label>
           </div>
@@ -52,7 +52,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"  SelectCommand= "select mffullname + ', ' + position as mffullname from member inner join offices on member.position = offices.officename where member.Position <> 'Member' and position <> 'Director' order by officeorder">        
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="BoarddataSource" runat="server"  SelectCommand="select mffullname  from member where  position = 'Director' or position in  (select officename from offices where officeorder between 100 and 550) order by lastname,firstname"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="ProgramDataSource" runat="server"  SelectCommand="select mffullname +', ' + 'Chair' as mffullname ,lastname,firstname, 1 as pos  from member where  programcommittee = 'Chair'  union all  select mffullname ,lastname,firstname,2 from member where  programcommittee = 'Member' order by pos,lastname,firstname"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="LunchDataSource" runat="server"  SelectCommand="select mffullname +', ' + 'Chair' as mffullname ,lastname,firstname, 1 as pos  from member where  lunchcommittee = 'Chair'  union all  select mffullname ,lastname,firstname,2 from member where lunchcommittee = 'Member' order by pos,lastname,firstname"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="ProgramDataSource" runat="server"  SelectCommand="select mffullname ,committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='ProgramCommittee' and committees.position='member'  union all select mffullname + ', Chair',committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='ProgramCommittee' and committees.position='chair' order by position ,member.lastname  "></asp:SqlDataSource>
+    <asp:SqlDataSource ID="LunchDataSource" runat="server"  SelectCommand="select mffullname ,committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='LunchCommittee' and committees.position='member'  union all select mffullname + ', Chair',committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='LunchCommittee' and committees.position='chair' order by position ,member.lastname "></asp:SqlDataSource>
 	 
 </asp:Content>

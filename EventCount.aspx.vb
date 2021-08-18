@@ -5,7 +5,7 @@ Public Class EventCount
     'The report produces a list of members and how many events they attended since a given date
     Dim conn As SqlConnection
     Protected Sub Page_INIT(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
-        Dim strConnectionString As String = GetConnectionString(True, False)
+        Dim strConnectionString As String = GetConnectionString(False, False)
         Session("conn") = strConnectionString
         conn = New SqlConnection(strConnectionString)
         conn.Open()

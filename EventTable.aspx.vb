@@ -5,7 +5,7 @@ Public Class EventTable
     Dim conn As New SqlConnection
     'This page allows the administrator to create or edit events.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        conn = New SqlConnection(GetConnectionString(True, True))
+        conn = New SqlConnection(GetConnectionString(False, False))
         conn.Open()
         DateDDL.ConnectionString = conn.ConnectionString
         dsEvent.ConnectionString = conn.ConnectionString
@@ -101,7 +101,7 @@ Public Class EventTable
         Dim meal1cat As Integer = CInt(CType(Me.fvEventTable.FindControl("Meal1Category"), DropDownList).Text)
         Dim meal2cat As Integer = CInt(CType(Me.fvEventTable.FindControl("Meal2Category"), DropDownList).Text)
         Dim meal3cat As Integer = CInt(CType(Me.fvEventTable.FindControl("Meal3Category"), DropDownList).Text)
-        If Not ((meal1cat = meal2cat And meal1cat >= 11) Or (meal1cat = meal3cat And meal1cat >= 11) Or (meal2cat = meal3cat And meal2cat >= 11)) Then
+        If ((meal1cat = meal2cat And meal1cat <> 11) Or (meal1cat = meal3cat And meal1cat <= 11) Or (meal2cat = meal3cat And meal2cat <= 11)) Then
             ClientScript.RegisterStartupScript(Me.[GetType](), "alert", "alert('All meal categories must be different or TBA or No Meal')", True)
             MainPanel.Visible = True
             Exit Sub

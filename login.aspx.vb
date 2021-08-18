@@ -69,7 +69,7 @@ Partial Public Class Login
         sqlConnection.Open()
         Session("UName") = UserName
 
-        Dim command As New SqlCommand("SELECT ID, FirstName,Lastname, UserName,  Password, SecurityQuestion FROM Member where member.username =@logname", sqlConnection)
+        Dim command As New SqlCommand("SELECT ID, FirstName,Lastname, UserName,SpouseFirstName,SpouseLastName,  Password, SecurityQuestion FROM Member where member.username =@logname", sqlConnection)
         command.Parameters.AddWithValue("@logname", Login1.UserName)
         Dim Dr As SqlDataReader
 
@@ -80,6 +80,7 @@ Partial Public Class Login
                 Session("userID") = Dr("ID").ToString
                 Session("UserName") = UserName
                 Session("FullName") = Dr("FirstName").ToString & " " & Dr("LastName").ToString
+                Session("SFullName") = Dr("SpouseFirstName").ToString & " " & Dr("SpouseLastName").ToString
                 If Not (Dr("SecurityQuestion") Is System.DBNull.Value) Then
                     Me.txtQuestion.Text = CStr(Dr("SecurityQuestion"))
                 Else

@@ -185,6 +185,7 @@
     <Content Include="ccfr_config.js" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ckeditor.js" />
+    <Content Include="CommitteeList.aspx" />
     <Content Include="ConfirmEvent.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -223,6 +224,7 @@
     <Content Include="DSAttendence.xsc">
       <DependentUpon>DSAttendence.xsd</DependentUpon>
     </Content>
+    <Content Include="CommitteeAsignments.aspx" />
     <None Include="DSAttendence.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -319,7 +321,7 @@
     <Content Include="MealReport.aspx" />
     <Content Include="Membership.aspx" />
     <Content Include="MemberSignup.aspx" />
-    <Content Include="MemberUpdate.aspx" />
+    <Content Include="MemberUpdatenew.aspx" />
     <Content Include="PassRecover.aspx" />
     <Content Include="PayPalInfo.aspx" />
     <Content Include="PositionTable.aspx" />
@@ -378,6 +380,13 @@
       <DependentUpon>AdminStart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CommitteeAsignments.aspx.designer.vb">
+      <DependentUpon>CommitteeAsignments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommitteeAsignments.aspx.vb">
+      <DependentUpon>CommitteeAsignments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Content Include="App_Code\SharedCode.vb" />
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
@@ -429,6 +438,13 @@
     <Compile Include="ChangePassword.aspx.vb">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommitteeList.aspx.designer.vb">
+      <DependentUpon>CommitteeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommitteeList.aspx.vb">
+      <DependentUpon>CommitteeList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ConfirmEvent.aspx.designer.vb">
       <DependentUpon>ConfirmEvent.aspx</DependentUpon>
@@ -675,11 +691,11 @@
       <DependentUpon>MemberSignup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MemberUpdate.aspx.designer.vb">
-      <DependentUpon>MemberUpdate.aspx</DependentUpon>
+    <Compile Include="MemberUpdatenew.aspx.designer.vb">
+      <DependentUpon>MemberUpdatenew.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MemberUpdate.aspx.vb">
-      <DependentUpon>MemberUpdate.aspx</DependentUpon>
+    <Compile Include="MemberUpdatenew.aspx.vb">
+      <DependentUpon>MemberUpdatenew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />

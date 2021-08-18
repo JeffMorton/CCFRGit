@@ -19,10 +19,7 @@ Public Class Defaultc
         Else
             Me.Label1.Text = Now().ToShortDateString
         End If
-        Message.Text = "In planning for this fall, the CCFR Board decided at its June meeting that we did not want to go dark! For that reason, the monthly speaker presentations in September through December will occur over Zoom from 6 PM to 7:15 on the usual second Thursday of each month. The speaker’s presentation will be followed by Q&A. The Board will explore later in the fall if it is possible to have some dinner meetings in 2021 concurrently with Zoom meetings.  The luncheon meetings in the fall will also be over Zoom.
-The CCFR reserves are healthy, and for that reason, the Board decided for the upcoming year only where meetings are over Zoom to reduce the annual dues from $120 per individual or couple to $60.
-
-"
+        Message.Text = ""
 
         Dim strConnection As String = GetConnectionString(True, False)
         'GetEventID("Dinner")

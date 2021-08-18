@@ -165,28 +165,37 @@ Public Class MemberUpdate
         Dim msgBody As String
 
         Using cmd As New SqlCommand("select onlinetext from information", conn)
-                FromEmail = memail
-                msgBody = cmd.ExecuteScalar.ToString
-            End Using
-            msgBody += "<br/>" & "<br />"
-            msgBody += "User Name: " & uname
-            If passw Is Nothing Then
-                passw = "Ccfr" & Format(Session("UserID"), "0000")
-            End If
+            FromEmail = memail
+            msgBody = cmd.ExecuteScalar.ToString
+        End Using
+        msgBody += "<br/>" & "<br />"
+        msgBody += "User Name: " & uname
+        If passw Is Nothing Then
+            passw = "Ccfr" & Format(Session("UserID"), "0000")
+        End If
 
 
-            msgBody += "<br />" & "<br />" & "Password: " & passw & "<br />" & "<br />"
-            msgBody += "Note - passwords are case sensitive"
-            FromEmail = "reservations@ccfrcville.org"
+        msgBody += "<br />" & "<br />" & "Password: " & passw & "<br />" & "<br />"
+        msgBody += "Note - passwords are case sensitive"
+        FromEmail = "reservations@ccfrcville.org"
         Dim Attach(1) As String
         Try
             Dim cnt As Integer = SendMessage(MailSubject, msgBody, ToEmail, FromEmail, "", True, Attach, CntMember)
             ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alert", "alertuser('Information Sent')", True)
 
-            Catch ex As Exception
-                lblMessage.Text = ex.Message & " " & ex.StackTrace.ToString
-                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alert", "alertuser('Mail Message Failed')", True)
-            End Try
+        Catch ex As Exception
+            lblMessage.Text = ex.Message & " " & ex.StackTrace.ToString
+            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alert", "alertuser('Mail Message Failed')", True)
+        End Try
+    End Sub
+    Protected Sub SpouseCommittees()
+        Session("Scode") = True
+        Response.Redirect("committeeasignments.aspx?M=S")
+    End Sub
+    Protected Sub MemberCommittees()
+        Session("Scode") = False
+        Response.Redirect("committeeasignments.aspx?M=M")
+
     End Sub
 
 

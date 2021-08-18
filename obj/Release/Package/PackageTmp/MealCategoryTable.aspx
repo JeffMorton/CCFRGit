@@ -23,7 +23,7 @@
             onrowdeleting ="DeleteRow"
             runat="server" DataKeyNames="ID"  HeaderStyle-BackColor="Wheat" ShowFooter="true"
             EnableTheming="False" Width="400px"><Columns>
-                <asp:TemplateField HeaderText="Guests">
+                <asp:TemplateField HeaderText="Meal Categories">
                     <HeaderTemplate>
                         <asp:Label ID="Label1" runat="server" Text="Category" />
 
