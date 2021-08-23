@@ -74,11 +74,17 @@ Public Class EventSignUp
     Protected Sub Update_form(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim TotalDue As Double
         Dim CheckAmount As Double
+        Dim MealsOwed As Double
         Session("Category") = "Meal Receipts"
         Dim NoRefund As Boolean = CType(AccForm.FindControl("NoRefund"), CheckBox).Checked
         If Not NoRefund Then
             'if user changes MealsOwed, save the change.
-            Dim MealsOwed As Double = CDbl(CType(AccForm.FindControl("MealsOwed"), TextBox).Text)
+            Try
+                MealsOwed = CDbl(CType(AccForm.FindControl("MealsOwed"), TextBox).Text)
+            Catch
+                MealsOwed = 0.00
+            End Try
+
             Using Cmd As New SqlCommand("Update Member set MealsOwed = @MealsOwed where id =@MemberID", conn)
                 Cmd.Parameters.AddWithValue("@MemberID", Session("UserID"))
                 Cmd.Parameters.AddWithValue("@MealsOwed", MealsOwed)
