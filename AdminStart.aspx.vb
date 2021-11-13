@@ -75,11 +75,12 @@ Public Class AdminStart
     Protected Sub ComputePercentOnline()
         Dim Online As Single
         Dim MailIn As Single
-        Using cmd As New SqlCommand("select count(tID) from account where teventdate=@EventDate and len(tchecknumber)>8 and tCategory='Meal Receipts'", conn)
+        Using cmd As New SqlCommand("select count(tID) from account where teventdate=@EventDate and len(tchecknumber)>8 and tCategory like'Meal%'", conn)
             cmd.Parameters.AddWithValue("@EventDate", Format(CDate(Session("EventDate")), "d"))
             Online = CSng(cmd.ExecuteScalar)
         End Using
-        Using cmd As New SqlCommand("select count(ID) from membersignup where eventid=@eventid", conn)
+        Using cmd As New SqlCommand("select count(ID) from membersignup where eventid =1247 and (memberattend = 'true'or spouseattend = 'true')
+", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
             MailIn = CSng(cmd.ExecuteScalar) - Online
         End Using

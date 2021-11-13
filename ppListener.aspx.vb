@@ -108,7 +108,11 @@ Public Class PpListener
             Next
             If Not String.IsNullOrEmpty(err) Then
                 RecordError("ppListener", "started", err, sqlConnection)
-                SendMessagetoWebMaster(err & " IDs " & Session("UserID").ToString & Session("EventID").ToString)
+                Try
+                    SendMessagetoWebMaster(err & " IDs " & Session("UserID").ToString & Session("EventID").ToString)
+                Catch
+                End Try
+
             Else
                 RecordError("ppListener", "started", "Decode Complete ", sqlConnection)
             End If

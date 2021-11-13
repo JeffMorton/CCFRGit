@@ -194,7 +194,7 @@ Public Class EMailReminders
 
 
             EmailGreeting = "<p>Dear " & Nam & ",</p>" _
-            & "<p>We would like to remind you that the next CCFR meeting is " & dt & " via Zoom</p>" _
+            & "<p>We would like to remind you that the next CCFR meeting is " & CDate(dt).ToShortDateString & "</p>" _
              & "Our records indicate that you have the following" _
             & " reservations:</p> <div style=""margin-left:50px""> <table style=""width: 80%"" >" _
              & "    <tr>" _
@@ -202,7 +202,7 @@ Public Class EMailReminders
              & " <td style=""width: 150px"" class=""auto-style1""><strong>meal(s)</strong></td>    </tr>"
         Else
             EmailGreeting = "<p>Dear " & Nam & ",</p>" _
-        & " <p>We would like to remind you that the next CCFR meeting is " & dt & " via Zoom" _
+        & " <p>We would like to remind you that the next CCFR meeting is " & dt _
         & "  &nbsp; Our records indicate that you have the following" _
         & " reservations:</p> <div style=""margin-left:50px""> <table style=""width: 80%"" >" _
         & "    <tr>" _

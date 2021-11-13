@@ -19,9 +19,8 @@
 </asp:GridView> </asp:Panel></div>
 	<br />
         <asp:Label ID="Msg" Text ="" runat="server" Visible="false"></asp:Label>
- 		<asp:Label ID="Msg1" Text =""  runat="server" Visible="false"></asp:Label><br /><br />
-    
-           <asp:Button runat="server" Text="Complete Reservation" id="Complete" visible="false" Height="40px"/> 
+ 		<asp:Label ID="Msg1" Text =""  runat="server" Visible="false"></asp:Label>
+       <asp:Button runat="server" Text="Complete Reservation" id="Complete" margin-left=200px visible="false" Height="40px"/> 
 
           
 
@@ -34,8 +33,9 @@
      
   <div >
     <asp:Panel ID="Panel1" runat="server" Visible="false" style="position:static;margin-left:550px;margin-top:460px">
-       
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="width:100px" > 
+         </asp:Panel></div>
+  <div style="margin-left:400px;margin-top:250px;position:relative;z-index:3">
+<form  action="https://www.paypal.com/cgi-bin/webscr" method="post" style="width:100px; margin-right: 74px;margin-left:150px" > 
  
 <input type="hidden" name="cmd" value="_cart"/>
 <input type ="hidden" name ="upload" value ="1" />
@@ -65,13 +65,14 @@
 <input type="hidden" name="return" value="http://ccfrcville.org/ConfirmEvent.aspx"/>
 <input type="hidden" name="currency_code" value="USD"/>
 <input type="hidden" name="button_subtype" value="services"/>
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted"/>&nbsp;&nbsp;
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
-    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif"  name="submit" id="PPbutton"  alt="PayPal - The safer, easier way to pay online!" style="height: 49px"  />
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted"/>
+<img alt="Buy Now" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif"  
+        name="submit" id="PPbutton"  alt="PayPal - The safer, easier way to pay online!" style="height: 49px"  />
+ 
 </form>
 
-    </asp:Panel></div>
-
+ </div>
 </asp:Content>
            
 
