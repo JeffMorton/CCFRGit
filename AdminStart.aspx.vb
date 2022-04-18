@@ -13,6 +13,10 @@ Public Class AdminStart
         Me.SqlDataSource1.ConnectionString = conn.ConnectionString
 
         If Not IsPostBack Then
+            Using cmd As New SqlCommand("FillPPTranslog", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.ExecuteNonQuery()
+            End Using
             EventDateDDL.DataBind()
             Dim EvDate As Date = CDate("1/1/2019")
             Dim EVID As Integer = 1
@@ -75,12 +79,11 @@ Public Class AdminStart
     Protected Sub ComputePercentOnline()
         Dim Online As Single
         Dim MailIn As Single
-        Using cmd As New SqlCommand("select count(tID) from account where teventdate=@EventDate and len(tchecknumber)>8 and tCategory like'Meal%'", conn)
-            cmd.Parameters.AddWithValue("@EventDate", Format(CDate(Session("EventDate")), "d"))
+        Using cmd As New SqlCommand("select count(ID) from ppTransLog where eventid = @EventID and Transtype='CCFR Reservations'", conn)
+            cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
             Online = CSng(cmd.ExecuteScalar)
         End Using
-        Using cmd As New SqlCommand("select count(ID) from membersignup where eventid =1247 and (memberattend = 'true'or spouseattend = 'true')
-", conn)
+        Using cmd As New SqlCommand("select count(ID) from membersignup where eventid =@EventID and (memberattend = 'true'or spouseattend = 'true')", conn)
             cmd.Parameters.AddWithValue("@EventID", Session("EventID"))
             MailIn = CSng(cmd.ExecuteScalar) - Online
         End Using

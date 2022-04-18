@@ -225,6 +225,18 @@
       <DependentUpon>DSAttendence.xsd</DependentUpon>
     </Content>
     <Content Include="CommitteeAsignments.aspx" />
+    <Content Include="DB_25784_ccfrDataSet.xsc">
+      <DependentUpon>DB_25784_ccfrDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="NewMemberReport.aspx" />
+    <None Include="DB_25784_ccfrDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_25784_ccfrDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DB_25784_ccfrDataSet.xss">
+      <DependentUpon>DB_25784_ccfrDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="DSAttendence.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -276,6 +288,17 @@
     </None>
     <Content Include="dsMealReport.xss">
       <DependentUpon>dsMealReport.xsd</DependentUpon>
+    </Content>
+    <Content Include="dsNewMember.xsc">
+      <DependentUpon>dsNewMember.xsd</DependentUpon>
+    </Content>
+    <None Include="dsNewMember.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsNewMember.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dsNewMember.xss">
+      <DependentUpon>dsNewMember.xsd</DependentUpon>
     </Content>
     <None Include="dsRoster.xsd">
       <SubType>Designer</SubType>
@@ -387,6 +410,13 @@
       <DependentUpon>CommitteeAsignments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="NewMemberReport.aspx.designer.vb">
+      <DependentUpon>NewMemberReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewMemberReport.aspx.vb">
+      <DependentUpon>NewMemberReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Content Include="App_Code\SharedCode.vb" />
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
@@ -460,6 +490,11 @@
       <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="DB_25784_ccfrDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_25784_ccfrDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSAttendence1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -484,6 +519,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsMealReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsNewMember.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsNewMember.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsRoster1.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -839,6 +879,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewMember.rdlc" />
     <EmbeddedResource Include="RosterR.rdlc" />
     <EmbeddedResource Include="UnPaidDues.rdlc" />
     <EmbeddedResource Include="UnPaidMeals.rdlc" />
