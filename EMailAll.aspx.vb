@@ -134,21 +134,24 @@ Public Class EamilAll
     End Sub
 
     Protected Sub UploadMultipleFiles(sender As Object, e As System.EventArgs) Handles btnUpload.Click
-        Dim Files As HttpFileCollection = Request.Files
-        Dim fname As String
-        Using cmd As New SqlCommand("insert into Attachments (eventid,filename) values (@EventID,@Filename)", conn)
-            cmd.Parameters.AddWithValue("@EventID", 1)
-            cmd.Parameters.Add("@FileName", SqlDbType.NVarChar)
-            For i As Integer = 0 To Files.Count - 1
-                Dim file As HttpPostedFile = Files(i)
-                ListAttachments.Items.Add(Files(i).FileName)
-                fname = GetFilenameFromPath(Files(i).FileName)
-                cmd.Parameters("@FileName").Value = fname
-                cmd.ExecuteNonQuery()
-                file.SaveAs(Server.MapPath("~/documents/") & fname)
-            Next
-        End Using
-
+        If FileUpload1.HasFiles = True Then
+            Dim Files As HttpFileCollection = Request.Files
+            Dim fname As String
+            Using cmd As New SqlCommand("insert into Attachments (eventid,filename) values (@EventID,@Filename)", conn)
+                cmd.Parameters.AddWithValue("@EventID", 1)
+                cmd.Parameters.Add("@FileName", SqlDbType.NVarChar)
+                For i As Integer = 0 To Files.Count - 1
+                    Dim file As HttpPostedFile = Files(i)
+                    ListAttachments.Items.Add(Files(i).FileName)
+                    fname = GetFilenameFromPath(Files(i).FileName)
+                    cmd.Parameters("@FileName").Value = fname
+                    cmd.ExecuteNonQuery()
+                    file.SaveAs(Server.MapPath("~/documents/") & fname)
+                Next
+            End Using
+        Else
+            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "alert", "alertuser('No files to upload')", True)
+        End If
     End Sub
     Function GetFilenameFromPath(ByVal strPath As String) As String
         ' Returns the rightmost characters of a string upto but not including the rightmost '\'

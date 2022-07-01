@@ -19,7 +19,7 @@ Public Class Defaultc
         Else
             Me.Label1.Text = Now().ToShortDateString
         End If
-        Message.Text = ""
+        'Message.Text = ""
 
         Dim strConnection As String = GetConnectionString(True, False)
         'GetEventID("Dinner")

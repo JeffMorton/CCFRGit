@@ -216,6 +216,7 @@
     <Content Include=".editorconfig" />
     <Content Include="admin.Master" />
     <Content Include="Handler1.ashx" />
+    <Content Include="MeetingDetail.aspx" />
     <Content Include="member.Master" />
     <Content Include="package.json" />
     <Content Include="dsRoster.xsc">
@@ -408,6 +409,13 @@
     </Compile>
     <Compile Include="CommitteeAsignments.aspx.vb">
       <DependentUpon>CommitteeAsignments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MeetingDetail.aspx.designer.vb">
+      <DependentUpon>MeetingDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingDetail.aspx.vb">
+      <DependentUpon>MeetingDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewMemberReport.aspx.designer.vb">

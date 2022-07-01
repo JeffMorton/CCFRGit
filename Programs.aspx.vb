@@ -17,10 +17,11 @@ Partial Public Class Programs
 
             Try
                 drange = Request.QueryString("Date")
+
                 Label1.Text = drange
                 Startdate = CDate("08/01/" & Mid(drange, 1, 4))
                 EndDate = CDate("07/30/20" & Mid(drange, 6, 2))
-                strSQL = "Select EventDate,Speaker, SpeechTitle,ShortSpeakerBio,Preface from Event where EventDate between '" & Startdate & "' and '" & EndDate & "' and Type = 'Dinner' order by eventdate "
+                strSQL = "Select ID,EventDate,Speaker, SpeechTitle,ShortSpeakerBio,Preface from Event where EventDate between '" & Startdate & "' and '" & EndDate & "' and Type = 'Dinner' order by eventdate "
                 Me.Repeater1.DataSource = FillData(strSQL)
                 Me.Repeater1.DataBind()
             Catch
@@ -44,6 +45,13 @@ Partial Public Class Programs
                 Dim lblFooter As Label = CType(e.Item.FindControl("lblEmptyData"), Label)
                 lblFooter.Visible = True
             End If
+        End If
+    End Sub
+    Protected Sub Repeater1_itemcommand(ByVal sender As Object, ByVal e As RepeaterCommandEventArgs)
+        If e.CommandName.ToString = "select" Then
+            Dim message As String = TryCast(e.Item.FindControl("ID"), Label).Text
+            Dim url As String = "meetingdetail.aspx?ID=" & message
+            Response.Redirect(url.ToString)
         End If
     End Sub
 End Class

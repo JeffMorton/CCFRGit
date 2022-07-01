@@ -451,6 +451,24 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:CCFRW19.MeetingDetail._FormView1">
+<summary>
+FormView1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CCFRW19.MeetingDetail._SqlDataSource1">
+<summary>
+SqlDataSource1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:CCFRW19.NewMemberReport._ScriptManager1">
 <summary>
 ScriptManager1 control.

@@ -16,13 +16,12 @@
 		on major international issues that increasingly affect our lives.</td>
             </tr>
         </table>
-        <asp:Label ID="Label1" runat="server" Text="Label"
-            Width="54px" Visible="false"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Label" Width="54px" Visible="false"></asp:Label>
     </div>
 
 
 		<div class="pPage" style="width:800px;" visible="false">
-            <asp:Label ID="Message" width="715px" cssclass="pNormalTextNJ" runat ="server" Text="Label"></asp:Label><br />
+            <asp:Label ID="Message" width="715px" cssclass="pNormalTextNJ" runat ="server" Text="Label" Visible="false"></asp:Label><br />
             <asp:FormView ID="FormView1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" Width="710px" Font-Bold="False" EnableModelValidation="True">
 			
 			<ItemTemplate >

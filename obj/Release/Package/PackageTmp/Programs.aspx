@@ -10,7 +10,7 @@
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span><br /><br />
 
       <asp:Repeater id="Repeater1" runat="server" 
-          onitemdatabound="Repeater1_ItemDataBound">
+          onitemdatabound="Repeater1_ItemDataBound" OnItemCommand="Repeater1_ItemCommand" >
           <ItemTemplate>
               <table>
                   <tr>
@@ -20,8 +20,10 @@
                       <td>
                           <asp:Label ID="Preface" Text='<%#Eval("Preface") %>' runat="server" />
                           <asp:Label ID="Speaker" CssClass='pStrongText' Text=' <%#Eval("Speaker")%>' runat="server" />
-                          <asp:Label runat="server" CssClass='PNormalTextNJ' Text='<%#Eval("ShortSpeakerBio")%>'>  </asp:Label>
+                          <%--<asp:Label runat="server" CssClass='PNormalTextNJ' Text='<%#Eval("ShortSpeakerBio")%>'>  </asp:Label>--%>
                           <asp:Label runat="server" Cssclass='pItalic' ID="lbTitle" Text='<%#Eval("SpeechTitle")%>' />
+                          <asp:Label runat="server" ID="ID" Text='<%#Eval("ID")%>' visible="false"></asp:Label></br>
+                          <asp:LinkButton ID="LinkButton1" runat="server" CommandName="select">More Information</asp:LinkButton>
                       </td>
                   </tr>
                   <br />

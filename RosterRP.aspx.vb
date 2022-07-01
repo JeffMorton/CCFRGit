@@ -20,7 +20,7 @@ Public Class RosterRP
 
         Dim strSQL As String = "SELECT Member.CombinedNickName, Member.Telephone, Member.Address, Member.CSZ, Member.mfFullName, Member.MEmail,Member.SpouseEmail,Member.cellphone, Member.ProgramCommittee,Member.Nickname,Member.SpouseNickname,Member.SCellphone, Offices.OfficeOrder " _
           & "FROM Member INNER JOIN Offices On Member.Position = Offices.OfficeName where dontincludeonreports='false' " _
-         & "ORDER BY Member.LastName, member.FirstName, Offices.OfficeOrder"
+         & "and lastname >'a' ORDER BY Member.LastName, member.FirstName, Offices.OfficeOrder"
 
         ReportViewer1.LocalReport.DataSources.Add(ReportDataS(strSQL, "DSRoster", conn))
 
