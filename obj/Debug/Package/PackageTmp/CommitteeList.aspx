@@ -22,7 +22,7 @@
             EnableTheming="False" Width="400px"><Columns>
                 <asp:TemplateField HeaderText="Committees">
                     <HeaderTemplate>
-                        <asp:Label ID="Label1" runat="server" Text="Category" />
+                        <asp:Label ID="Label1" runat="server" Text="Committees" />
 
                     </HeaderTemplate>
                     <ItemTemplate>

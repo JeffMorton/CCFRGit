@@ -14,6 +14,7 @@ Public Class Committees
         Me.PositionSource.ConnectionString = conn.ConnectionString
         Me.ComNameSource.ConnectionString = conn.ConnectionString
         If Not IsPostBack Then
+
             If CStr(Session("Scode")) = "True" Then
                 strSQL = "Select sfFullName from member where id = @ID"
             Else
@@ -61,8 +62,8 @@ Public Class Committees
 
     End Sub
     Protected Sub Exform(sender As Object, e As EventArgs) Handles ExitForm.Click
-
         Response.Redirect("Memberupdate.aspx")
+
     End Sub
     Protected Sub DeleteRow(sender As Object, e As GridViewDeleteEventArgs)
         Dim row As Integer = e.RowIndex

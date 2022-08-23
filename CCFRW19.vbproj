@@ -226,18 +226,7 @@
       <DependentUpon>DSAttendence.xsd</DependentUpon>
     </Content>
     <Content Include="CommitteeAsignments.aspx" />
-    <Content Include="DB_25784_ccfrDataSet.xsc">
-      <DependentUpon>DB_25784_ccfrDataSet.xsd</DependentUpon>
-    </Content>
     <Content Include="NewMemberReport.aspx" />
-    <None Include="DB_25784_ccfrDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DB_25784_ccfrDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="DB_25784_ccfrDataSet.xss">
-      <DependentUpon>DB_25784_ccfrDataSet.xsd</DependentUpon>
-    </Content>
     <None Include="DSAttendence.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -331,6 +320,17 @@
     <Content Include="dsUnPaidDues.xss">
       <DependentUpon>dsUnPaidDues.xsd</DependentUpon>
     </Content>
+    <Content Include="dsVaccinated.xsc">
+      <DependentUpon>dsVaccinated.xsd</DependentUpon>
+    </Content>
+    <None Include="dsVaccinated.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVaccinated.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dsVaccinated.xss">
+      <DependentUpon>dsVaccinated.xsd</DependentUpon>
+    </Content>
     <None Include="My Project\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="GuestAttend.aspx" />
     <Content Include="GuestNameTags.aspx" />
@@ -345,7 +345,7 @@
     <Content Include="MealReport.aspx" />
     <Content Include="Membership.aspx" />
     <Content Include="MemberSignup.aspx" />
-    <Content Include="MemberUpdatenew.aspx" />
+    <Content Include="MemberUpdate.aspx" />
     <Content Include="PassRecover.aspx" />
     <Content Include="PayPalInfo.aspx" />
     <Content Include="PositionTable.aspx" />
@@ -365,6 +365,7 @@
     <Content Include="UnPaidDues.aspx" />
     <Content Include="UnpaidMeals.aspx" />
     <Content Include="UpdateWebMenu.aspx" />
+    <Content Include="VaccinationReport.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -410,6 +411,11 @@
     <Compile Include="CommitteeAsignments.aspx.vb">
       <DependentUpon>CommitteeAsignments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dsVaccinated.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsVaccinated.xsd</DependentUpon>
     </Compile>
     <Compile Include="MeetingDetail.aspx.designer.vb">
       <DependentUpon>MeetingDetail.aspx</DependentUpon>
@@ -497,11 +503,6 @@
     <Compile Include="ContactUs.aspx.vb">
       <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DB_25784_ccfrDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_25784_ccfrDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DSAttendence1.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -739,11 +740,11 @@
       <DependentUpon>MemberSignup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MemberUpdatenew.aspx.designer.vb">
-      <DependentUpon>MemberUpdatenew.aspx</DependentUpon>
+    <Compile Include="MemberUpdate.aspx.designer.vb">
+      <DependentUpon>MemberUpdate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MemberUpdatenew.aspx.vb">
-      <DependentUpon>MemberUpdatenew.aspx</DependentUpon>
+    <Compile Include="MemberUpdate.aspx.vb">
+      <DependentUpon>MemberUpdate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -864,6 +865,13 @@
     <Compile Include="Uploader.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="VaccinationReport.aspx.designer.vb">
+      <DependentUpon>VaccinationReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VaccinationReport.aspx.vb">
+      <DependentUpon>VaccinationReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -891,6 +899,7 @@
     <EmbeddedResource Include="RosterR.rdlc" />
     <EmbeddedResource Include="UnPaidDues.rdlc" />
     <EmbeddedResource Include="UnPaidMeals.rdlc" />
+    <EmbeddedResource Include="Vaccine.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">

@@ -23,110 +23,29 @@ Partial Public Class Leadership
     Protected WithEvents Address As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DataList1 control.
+    '''tb1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DataList1 As Global.System.Web.UI.WebControls.DataList
+    Protected WithEvents tb1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DataList2 control.
+    '''tb2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DataList2 As Global.System.Web.UI.WebControls.DataList
+    Protected WithEvents tb2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ProgramCommittee control.
+    '''tb3 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ProgramCommittee As Global.System.Web.UI.WebControls.DataList
-
-    '''<summary>
-    '''DataList3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DataList3 As Global.System.Web.UI.WebControls.DataList
-
-    '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Administrator control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Administrator As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''SqlDataSource1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''BoarddataSource control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents BoarddataSource As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''ProgramDataSource control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ProgramDataSource As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''LunchDataSource control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LunchDataSource As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents tb3 As Global.System.Web.UI.WebControls.Label
 End Class

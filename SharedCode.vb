@@ -300,9 +300,42 @@ Public Module SharedCode
 
     End Sub
 
-    Public Function CreateList(strSQL As String, conn As SqlConnection) As String
+    Public Function CreateListx(strSQL As String, conn As SqlConnection) As String
         Dim command As SqlCommand = New SqlCommand(strSQL, conn)
+        Dim spe As String
+        Dim Spouse As Boolean
+        Dim lst As String = ""
+        Dim reader As SqlDataReader = command.ExecuteReader()
 
+        If reader.HasRows Then
+            Do While reader.Read()
+                spe = reader.GetString(4)
+                Spouse = reader.GetBoolean(3)
+                If Spouse = True And spe = "S" Then
+                    lst += CStr(reader.GetString(0)) & "<br/>"
+                ElseIf Spouse = False And spe = "M" Then
+                    lst += CStr(reader.GetString(0)) & "<br/>"
+
+                End If
+
+            Loop
+        End If
+
+        reader.Close()
+        CreateListx = Left(lst, Len(lst) - 5)
+    End Function
+    Public Function CreateList(grp As String, conn As SqlConnection) As String
+        Dim strsql As String
+        Select Case grp
+            Case "Officers"
+                strsql = "select mffullname + ', ' + position as mfFullName,officeorder from member inner join offices on member.position = offices.officename where member.Position <> 'Member' and position <> 'Director' union all select sffullname + ', ' + position,officeorder from member inner join offices on member.SPosition = offices.officename where member.SPosition <> 'Member' and SPosition <> 'Director' order by officeorder"
+            Case "Directors"
+                strsql = "select mffullname,lastname,firstname  from member where  position = 'Director' or position in  (select officename from offices where officeorder between 100 and 550) union all select sffullname, SpouseLastName,SpouseFirstName  from member where  SPosition = 'Director' or SPosition in  (select officename from offices where officeorder between 100 and 550) order by lastname,firstname"
+            Case Else
+                strsql = "select mffullname ,committees.position,lastname,spouse,'M' as mem from committees inner join member on member.id=committees.memberid where committees.committee='" & grp & "'" & " and Committees.position ='member' and spouse ='false' union all select mffullname + ', Chair',committees.position,lastname,spouse,'M' from committees inner join member on member.id=committees.memberid where committees.committee= '" & grp & "'" & " and committees.position='chair' and spouse ='false' union all Select sffullname , Committees.position, spouselastname, spouse,'S' from committees inner join member on member.id=committees.memberid where committees.committee= '" & grp & "'" & " and committees.position='member' and spouse ='true' union all select sffullname + ', Chair',committees.position,spouselastname,spouse,'S' from committees inner join member on member.id=committees.memberid where committees.committee= '" & grp & "'" & " and committees.position='chair' and spouse='true' order by position ,member.lastname"
+        End Select
+
+        Dim command As SqlCommand = New SqlCommand(strsql, conn)
         Dim lst As String = ""
         Dim reader As SqlDataReader = command.ExecuteReader()
 
@@ -316,9 +349,6 @@ Public Module SharedCode
         CreateList = Left(lst, Len(lst) - 5)
     End Function
 
-    Public Function CreateCommitteeSQL(com As String) As String
-        Dim strSQL As String = "select mffullname ,committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='" & com & "' and committees.position='member'  union all select mffullname + ', Chair',committees.position,lastname from committees inner join member on member.id=committees.memberid where committees.committee='" & com & "' and committees.position='chair' order by position ,member.lastname "
-        CreateCommitteeSQL = strSQL
-    End Function
+
 
 End Module

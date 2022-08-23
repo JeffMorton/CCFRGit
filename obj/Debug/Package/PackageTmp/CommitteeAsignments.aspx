@@ -52,18 +52,12 @@
                     <ItemTemplate>
                         
                           <asp:label ID="ID" runat="server" width="25px" Text='<%# Bind("ID") %>' visible="false" />
-                          <asp:DropDownList ID="Committee" width="250px" selectedValue='<%# Bind("Committee") %>' runat="server"
-                            DataSourceID="ComNameSource"
-                            DataValueField="ComName"
-                            DataTextField="ComName">
-                      </asp:DropDownList>                
+                                       
+                          <asp:textbox ID="Committee" width="240px"  Text='<%# Bind("Committee") %>' ReadOnly="True" runat="server" />&nbsp;
 
                                
-                          <asp:DropDownList ID="Position" width="195px" selectedValue='<%# Bind("Position") %>' runat="server"
-                            DataSourceID="PositionSource"
-                            DataValueField="Position"
-                            DataTextField="Position">
-                      </asp:DropDownList>  
+                          <asp:textbox ID="Position" width="183px"  Text='<%# Bind("Position") %>' runat="server" ReadOnly="True" />
+                      
                        <asp:Button Text="Delete" runat="server"   CommandArgument='<%# Eval("ID") %>'  CommandName="Delete" onclientclick="Dconfirm"  Width="120px" height="30px" />
                    </ItemTemplate>
   

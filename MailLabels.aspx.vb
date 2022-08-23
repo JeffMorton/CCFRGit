@@ -17,7 +17,7 @@ Public Class MailLabels
 
 
             Session("conn") = conn.ConnectionString
-            Dim strSQL As String = "SELECT  Envelopename,address,csz from member where dontincludeonreports='false' order by lastname, firstname "
+            Dim strSQL As String = "SELECT  Envelopename,address,csz from member where dontincludeonreports='false' and emailonly = 'False' order by lastname, firstname "
 
             ReportViewer1.LocalReport.DataSources.Add(ReportDataS(strSQL, "dsMailLabels", conn))
             ReportViewer1.LocalReport.Refresh()

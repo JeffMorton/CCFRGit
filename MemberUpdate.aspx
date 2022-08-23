@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/admin.Master" CodeBehind="MemberUpdatenew.aspx.vb" Inherits="CCFRW19.MemberUpdate" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/admin.Master" CodeBehind="MemberUpdate.aspx.vb" Inherits="CCFRW19.MemberUpdate" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 
@@ -87,8 +87,7 @@
                              <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="Cellphone"
                                  Mask="999-999-9999"
                                  ClearMaskOnLostFocus="False" />
-                         </asp:TableCell></asp:TableRow>
-    <asp:TableRow>
+                         </asp:TableCell></asp:TableRow><asp:TableRow>
                   <asp:TableCell>
                       <asp:Label ID="Label12" runat="server" Text="Position:" width="105px" CssClass="pNormalTextRight" />
                   </asp:TableCell><asp:TableCell>
@@ -97,29 +96,26 @@
                             DataValueField="OfficeName"
                             DataTextField="OfficeName">
                       </asp:DropDownList>
-                   </asp:TableCell></asp:TableRow>
-                      
-              <asp:TableRow>
-                  <asp:TableCell>
-                       <asp:Button ID="Committees" runat="server" Text="Committees" onclick="MemberCommittees" Width="120px" height="30px" />
-
-                  </asp:TableCell></asp:TableRow><asp:TableRow>   
-              
-             
-                  <asp:TableCell>
-                      <asp:Label ID="Label14" runat="server" Text="New Member:" width="105px" CssClass="pNormalTextRight" />
-                      </asp:TableCell><asp:TableCell>
-                      <asp:CheckBox ID="NewMember" checked='<%# Bind("NewMember")  %>' runat="server" />
-                           <asp:Label ID="Label15" runat="server" Text="No Reports:" width="115px" CssClass="pNormalTextRight" />
-                      <asp:CheckBox ID="NoReports" checked='<%# Bind("DontincludeonReports")  %>' runat="server" />
-             </asp:TableCell></asp:TableRow><asp:TableRow><asp:TableCell>
+                   </asp:TableCell></asp:TableRow><asp:TableRow>
+                   <asp:TableCell>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
+                        <asp:TableCell></asp:TableCell><asp:TableCell>
+                        <asp:Button ID="MComm" runat="server" Text="Committees Assignments" OnClick="MemberCommittees" width="200px"/></asp:TableCell>
+                   </asp:TableRow><asp:TableRow>
+                 <asp:TableCell>
                       <asp:Label ID="lAdministrator" runat="server" Text="Administrator:" width="105px" CssClass="pNormalTextRight" />
                       </asp:TableCell><asp:TableCell>
                       <asp:CheckBox ID="Admin" checked='<%# Bind("Admin")  %>' runat="server" />
                       
                            <asp:Label ID="Label" runat="server" Text="Print Nametag:" width="115px" CssClass="pNormalTextRight" />
                             <asp:CheckBox ID="PrintNameTag" checked='<%# Bind("PrintNameTag")  %>' runat="server" />
-                        </asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel><div style ="margin-left:355px; margin-top:-285px" >     
+
+                        </asp:TableCell></asp:TableRow><asp:TableRow>   
+                    <asp:TableCell>
+                      <asp:Label ID="Label19" runat="server" Text="Vaccinated:" width="105px" CssClass="pNormalTextRight" />
+                      </asp:TableCell><asp:TableCell>
+                      <asp:CheckBox ID="MVaccinated" checked='<%# Bind("MVaccinated")  %>' runat="server" />
+</asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel><div style ="margin-left:355px; margin-top:-285px" >     
  
                       <asp:Panel BorderStyle="Groove" BorderColor="Black" Height="280px" Width =" 330px" BackColor="wheat" runat = "server">
                           <asp:FormView ID="SpouseForm" runat="server" DataKeyNames="ID">
@@ -159,14 +155,34 @@
                                              <asp:TextBox ID="SCellphone" runat="server" Width="190px" Text='<%# Bind("SCellPhone") %>'></asp:TextBox>
                                              <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="SCellphone"
                                                  Mask="999-999-9999"
-                                                 ClearMaskOnLostFocus="False" />
-                                         </asp:TableCell></asp:TableRow>
-                                      <asp:TableRow><asp:TableCell>
-                                              <asp:Button ID="SCommittees" runat="server" Text="Committees" onclick="SpouseCommittees" Width="120px" height="30px"/>  </asp:TableCell></asp:TableRow>
-                                      <asp:TableRow>
-                                         <asp:TableCell>
-                                      <asp:Label ID="Label9" runat="server" Text="Print Nametag:" width="115px" CssClass="pNormalText" />  </asp:TableCell><asp:TableCell> <asp:CheckBox ID="SpousePrintNameTag" checked='<%# Bind("SpousePrintNameTag")  %>' runat="server" />
-                                        </asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel></div><br/><br/><asp:Panel BorderStyle="Groove" BorderColor="Black" Height="280px" Width =" 580px"  BackColor="wheat" runat = "server">
+                                                 ClearMaskOnLostFocus="False" /></asp:Tablecell></asp:Tablerow>
+                                      
+                                      <asp:Tablerow><asp:TableCell><asp:Label ID="Label12" runat="server" Text="Position:" width="105px" CssClass="pNormalTextRight" /></asp:TableCell> <asp:TableCell> 
+                                          <asp:DropDownList ID="SPosition" width="195px" selectedValue='<%# Bind("SPosition") %>' runat="server"
+                                                DataSourceID="PositionSource"
+                                                DataValueField="OfficeName"
+                                                DataTextField="OfficeName">
+                                          </asp:DropDownList>
+                                       </asp:TableCell></asp:TableRow><asp:TableRow>
+                                       
+                   
+                        <asp:TableCell></asp:TableCell><asp:TableCell>
+                        <asp:Button ID="MComm" runat="server" Text="Committees Assignments" OnClick="SpouseCommittees" width="200px"/></asp:TableCell>
+                                         </asp:TableRow><asp:TableRow>
+                 <asp:TableCell>
+                      <asp:Label ID="lAdministrator" runat="server" Text="Administrator:" width="105px" CssClass="pNormalTextRight" />
+                      </asp:TableCell><asp:TableCell>
+                      <asp:CheckBox ID="SAdmin" checked='<%# Bind("SAdmin")  %>' runat="server" />
+                      
+                           <asp:Label ID="Label" runat="server" Text="Print Nametag:" width="115px" CssClass="pNormalTextRight" />
+                            <asp:CheckBox ID="SpousePrintNameTag" checked='<%# Bind("SpousePrintNameTag")  %>' runat="server" />
+
+                        </asp:TableCell></asp:TableRow><asp:TableRow>   
+                    <asp:TableCell>
+                      <asp:Label ID="Label19" runat="server" Text="Vaccinated:" width="105px" CssClass="pNormalTextRight" />
+                      </asp:TableCell><asp:TableCell>
+                      <asp:CheckBox ID="SVaccinated" checked='<%# Bind("SVaccinated")  %>' runat="server" />
+</asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel></div><br/><br/><asp:Panel BorderStyle="Groove" BorderColor="Black" Height="290px" Width =" 580px"  BackColor="wheat" runat = "server">
 
          <asp:FormView ID="AddressForm" runat="server" DataKeyNames="ID">
              <HeaderTemplate>
@@ -229,16 +245,26 @@
                              <asp:Label ID="Label18" runat="server" Text="Meals Owed:" width="100px" CssClass="pNormalTextRight" />
                              <asp:TextBox ID="TextBox1" runat="server" Width="80px" Text='<%# Bind("MealsOwed", "{0:N2}") %>'></asp:TextBox>
 
-                </asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel><br/><asp:Button ID="UpdateM" runat="server" Text="Save Changes"  Width="120px" height="30px"/>
+                </asp:TableCell></asp:TableRow><asp:TableRow>   
+                  <asp:TableCell>
+                      <asp:Label ID="Label14" runat="server" Text="New Member:" width="190px" CssClass="pNormalTextRight" />
+                      </asp:TableCell><asp:TableCell>
+                      <asp:CheckBox ID="NewMember" checked='<%# Bind("NewMember")  %>' runat="server" />
+                           <asp:Label ID="Label15" runat="server" Text="No Reports:" width="115px" CssClass="pNormalTextRight" />
+                      <asp:CheckBox ID="NoReports" checked='<%# Bind("DontincludeonReports")  %>' runat="server" />
+                               <asp:Label ID="Label22" runat="server" Text="Email Only:" width="115px" CssClass="pNormalTextRight" />
+                      <asp:CheckBox ID="EmailOnly" checked='<%# Bind("EmailOnly")  %>' runat="server" />
+
+             </asp:TableCell></asp:TableRow></asp:Table></EditItemTemplate></asp:FormView></asp:Panel><br/><asp:Button ID="UpdateM" runat="server" Text="Save Changes"  Width="120px" height="30px"/>
                     <asp:Button ID="AddMember" runat="server" Text="Add New Member"  Onclick= "AddMem" Width="120px" height="30px"/>
                     <asp:Button ID="MailLogin" runat="server" Text="Send Login Info" Width="120px" height="30px"/>
                     <asp:Label ID="Label16" runat="server" Text="* indicated required fields"></asp:Label><asp:Button ID="DeleteM"  runat="server" OnClick = "OnConfirm" Width="120px" height="30px" Text = "Delete Member" OnClientClick = "Confirm()"/>
 </asp:panel>
         <asp:Label ID="lblMessage" runat="server"  width="715px" Text=""></asp:Label></div><asp:SqlDataSource ID="memSource" runat="server" 
         SelectCommand="SELECT * FROM [Member] WHERE ([ID] = @ID)" 
-        UpdateCommand= "Update Member set firstname = @firstname, lastname = @lastname, NickName = @Nickname,[E-Mail] = @MEmail, Position= @position,
-                        ProgramCommittee = @ProgramCommittee,LunchCommittee = @LunchCommittee, NewMember = @NewMember,DontIncludeonReports = @DontIncludeonReports,Cellphone = replace(replace(@Cellphone,'-',''),'_','') ,
-                      Admin= @Admin, PrintNameTag = @PrintNameTag  where [ID] = @ID" >
+        UpdateCommand= "Update Member set firstname = @firstname, lastname = @lastname, NickName = @Nickname,[E-Mail] = @MEmail, Position= @Position,
+                        Cellphone = replace(replace(@Cellphone,'-',''),'_','') ,
+                      Admin= @Admin, PrintNameTag = @PrintNameTag, MVaccinated = @MVaccinated   where [ID] = @ID" >
         <SelectParameters>
             <asp:SessionParameter SessionField="UserID" Name="ID" ></asp:SessionParameter>
         </SelectParameters>
@@ -247,8 +273,8 @@
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SSource" runat="server"
         SelectCommand="SELECT * FROM [Member] WHERE ([ID] = @ID)"
-        UpdateCommand="Update Member set  Spousefirstname = @Spousefirstname, Spouselastname = @Spouselastname, SCellphone = replace(replace(@SCellphone,'-',''),'_','') ,
-                    SpouseNickName = @SpouseNickname,SpouseEmail = @SpouseEmail, SpousePrintNameTag = @SpousePrintNameTag  where [ID] = @ID">
+        UpdateCommand="Update Member set  Spousefirstname = @Spousefirstname, Spouselastname = @Spouselastname,SPosition = @SPosition,SAdmin = @SAdmin,SVaccinated = @SVaccinated, SCellphone = replace(replace(@SCellphone,'-',''),'_','') ,
+                    SpouseNickName = @SpouseNickname,SpouseEmail = @SpouseEmail, SpousePrintNameTag = @SpousePrintNameTag where [ID] = @ID">
         <SelectParameters>
             <asp:SessionParameter SessionField="UserID" Name="ID"></asp:SessionParameter>
         </SelectParameters>
@@ -260,8 +286,8 @@
   <asp:SqlDataSource ID="AddressSource" runat="server" 
         SelectCommand="SELECT * FROM [Member] WHERE ([ID] = @ID)" 
         UpdateCommand= "Update Member set  Address= @Address, city= @city, state = @state, Zip=@Zip, 
-         Telephone = replace(@Telephone,'-',''),  RosterName = @RosterName,
-         EnvelopeName = @EnvelopeName, CombinedNickName = @CombinedNickName,DuesOwed=@DuesOwed, MealsOwed = @MealsOwed  where [ID] = @ID" >
+         Telephone = replace(@Telephone,'-',''),  RosterName = @RosterName, NewMember = @NewMember,DontIncludeonReports = @DontIncludeonReports,
+         EnvelopeName = @EnvelopeName, CombinedNickName = @CombinedNickName,DuesOwed=@DuesOwed, MealsOwed = @MealsOwed, EmailOnly =  @EmailOnly  where [ID] = @ID" >
         <SelectParameters>
             <asp:SessionParameter SessionField="UserID" Name="ID" ></asp:SessionParameter>
         </SelectParameters>

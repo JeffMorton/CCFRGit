@@ -27,22 +27,25 @@ Public Class RosterRP
         Dim param As ReportParameter() = New ReportParameter(3) {}
         param(0) = New ReportParameter("Title", "CCFR Roster Report")
 
-        strSQL = "select mffullname + ', ' + position from member inner join offices on member.position = offices.officename where member.Position <> 'Member' and position <> 'Director' order by officeorder"
-        Dim col1 As String = CreateList(strSQL, conn)
-        col1 += "<br /><br /><h5>Membership Committee</h5>" & CreateList(CreateCommitteeSQL("Membership Committee"), conn)
-        col1 += "<br /><br /><h5>Financial Review Committee</h5>" & CreateList(CreateCommitteeSQL("Financial Review Committee"), conn)
+        Dim col1 As String = CreateList("Officers", conn)
+        col1 += "<br /><br /><h5>Membership Committee</h5>" & CreateList("Membership Committee", conn)
+        col1 += "<br /><br /><h5>Financial Review Committee</h5>" & CreateList("Financial Review Committee", conn)
         col1 += "<br /><br /><h5>Administrator</h5>" & CStr(Info("Administrator"))
         param(1) = New ReportParameter("Officers", col1)
-        strSQL = "select mffullname  from member where  position = 'Director' or position in  (select officename from offices where officeorder between 100 and 550) order by lastname,firstname"
-        param(2) = New ReportParameter("Directors", CreateList(strSQL, conn))
-        Dim col3 As String = CreateList(CreateCommitteeSQL("Program Committee"), conn)
-        col3 += "<br /><h5>Luncheon Committee</h5>" & CreateList(CreateCommitteeSQL("Lunch Committee"), conn)
+        param(2) = New ReportParameter("Directors", CreateList("Directors", conn))
+        Dim col3 As String = CreateList("Program Committee", conn)
+        col3 += "<br /><h5>Luncheon Committee</h5>" & CreateList("Lunch Committee", conn)
         param(3) = New ReportParameter("PC", col3)
         ReportViewer1.LocalReport.SetParameters(param)
 
         ReportViewer1.LocalReport.Refresh()
     End Sub
+    Overloads Sub Page_PreInit(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreInit
+        If CStr(Session("Admin")) = "Admin" Then
+            Me.MasterPageFile = "~/admin.master"
+        End If
 
+    End Sub
 End Class
 
 

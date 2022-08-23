@@ -326,6 +326,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <DataSetName>dsMealReport</DataSetName>
             <Top>0.04167in</Top>
             <Height>0.5in</Height>

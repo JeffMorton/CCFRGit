@@ -56,7 +56,7 @@ Public Class AdminStart
 
         End If
         FillBadRegGrid()
-
+        Session("Admin") = "Admin"
         EventDLL_Index_Changed("", e)
     End Sub
     Protected Sub UpdateProblemRegistrations()

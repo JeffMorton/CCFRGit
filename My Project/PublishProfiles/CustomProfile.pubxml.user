@@ -62,10 +62,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2019 13:33:30</publishTime>
     </File>
     <File Include="bin/CCFRW19.dll">
-      <publishTime>07/01/2022 16:11:02</publishTime>
+      <publishTime>08/22/2022 12:44:04</publishTime>
     </File>
     <File Include="bin/CCFRW19.pdb">
-      <publishTime>07/01/2022 16:11:02</publishTime>
+      <publishTime>08/22/2022 12:44:04</publishTime>
     </File>
     <File Include="bin/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:28</publishTime>
@@ -500,7 +500,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2020 14:52:38</publishTime>
     </File>
     <File Include="bin/WebForms_Basic.xml">
-      <publishTime>07/01/2022 16:11:02</publishTime>
+      <publishTime>08/22/2022 12:44:04</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -557,7 +557,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 11:25:10</publishTime>
     </File>
     <File Include="Board.aspx">
-      <publishTime>08/11/2021 14:57:31</publishTime>
+      <publishTime>08/19/2022 16:30:55</publishTime>
     </File>
     <File Include="Bundle.config">
       <publishTime>06/17/2020 11:19:37</publishTime>
@@ -581,10 +581,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/03/2020 12:47:57</publishTime>
     </File>
     <File Include="CommitteeAsignments.aspx">
-      <publishTime>08/16/2021 10:35:50</publishTime>
+      <publishTime>08/18/2022 15:04:52</publishTime>
     </File>
     <File Include="CommitteeList.aspx">
-      <publishTime>08/16/2021 11:43:43</publishTime>
+      <publishTime>08/21/2022 09:07:26</publishTime>
     </File>
     <File Include="CommitteeList.aspx.designer.vb">
       <publishTime>08/16/2021 11:33:56</publishTime>
@@ -702,6 +702,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="dsUnPaidDues.xss">
       <publishTime>06/18/2020 13:26:04</publishTime>
+    </File>
+    <File Include="dsVaccinated.xsc">
+      <publishTime>08/20/2022 11:33:31</publishTime>
+    </File>
+    <File Include="dsVaccinated.xss">
+      <publishTime>08/20/2022 11:33:31</publishTime>
     </File>
     <File Include="DuesSetup.aspx">
       <publishTime>10/10/2019 08:41:48</publishTime>
@@ -824,7 +830,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/15/2021 14:36:14</publishTime>
     </File>
     <File Include="MemberUpdate.aspx">
-      <publishTime>07/21/2020 11:16:41</publishTime>
+      <publishTime>08/18/2022 13:15:08</publishTime>
     </File>
     <File Include="MemberUpdatenew.aspx">
       <publishTime>08/18/2021 12:53:01</publishTime>
@@ -1012,11 +1018,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="UpdateWebMenu.aspx">
       <publishTime>11/06/2019 15:49:39</publishTime>
     </File>
+    <File Include="VaccinationReport.aspx">
+      <publishTime>08/20/2022 09:16:20</publishTime>
+    </File>
+    <File Include="Vaccine.rdlc">
+      <publishTime>08/21/2022 08:58:10</publishTime>
+    </File>
     <File Include="ViewSwitcher.ascx">
       <publishTime>06/17/2020 11:19:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/24/2022 15:23:35</publishTime>
+      <publishTime>08/22/2022 12:44:08</publishTime>
     </File>
   </ItemGroup>
 </Project>

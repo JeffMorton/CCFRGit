@@ -34,7 +34,11 @@ Public Class MemberUpdate
         Me.AddressSource.ConnectionString = conn.ConnectionString
         Me.AddressForm.DataSourceID = AddressSource.ID
         Me.AddressForm.ChangeMode(FormViewMode.Edit)
-
+        If Session("Returnfromcommittee") IsNot Nothing Then
+            pMain.Visible = True
+            lblMessage.Text = ""
+            Session("Returnfromcommittee") = System.DBNull.Value
+        End If
 
 
     End Sub
@@ -190,10 +194,12 @@ Public Class MemberUpdate
     End Sub
     Protected Sub SpouseCommittees()
         Session("Scode") = True
+        Session("Returnfromcommittee") = Session("UserID")
         Response.Redirect("committeeasignments.aspx?M=S")
     End Sub
     Protected Sub MemberCommittees()
         Session("Scode") = False
+        Session("Returnfromcommittee") = Session("UserID")
         Response.Redirect("committeeasignments.aspx?M=M")
 
     End Sub
