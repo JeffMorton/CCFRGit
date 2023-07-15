@@ -11,7 +11,7 @@ Public Class AdminStart
         Dim id As Integer
         Me.DateDDL.ConnectionString = conn.ConnectionString
         Me.SqlDataSource1.ConnectionString = conn.ConnectionString
-
+        Session["Debug"]=True;
         If Not IsPostBack Then
             Using cmd As New SqlCommand("FillPPTranslog", conn)
                 cmd.CommandType = CommandType.StoredProcedure

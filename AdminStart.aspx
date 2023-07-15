@@ -22,10 +22,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
         <div class="pPage">
-
     </div>
-    
-
 		<div class="auto-style7" visible="false">
    <div style="margin-left:200px"  >   <strong>Select Event Date:</strong>    <asp:DropDownList ID="EventDateDDL" autopostback="true" runat="server" Height="27px" Width="110px" DataSourceID="DateDDL" OnSelectedIndexChanged="EventDLL_Index_Changed"
         DataTextField="EDate"
