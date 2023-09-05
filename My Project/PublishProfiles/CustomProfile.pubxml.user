@@ -8,6 +8,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwplAbLQf60Ckb2mnQPPH4AAAAAACAAAAAAAQZgAAAAEAACAAAACZcxYcg8oEnuLQbuBFfuA78WelI5/I9uiB7eplDWFCTQAAAAAOgAAAAAIAACAAAAARSbqwBVPKKdt7vreTlVQZyVMExS0H1q9Y6eiqH6H8cyAAAABJvm0nAz8rB/ha2MdueK3Cn/j0rBfyVxIFPhiBJCQNIUAAAADT/P5Fh+OzzSfarSJ3nc6z5Ny+EY0ypGL+AVwqv3ojK0Gs8ZtXsGTVwYzDSwdoIjb31lhtwnCgf00nnmbXC2os</EncryptedPassword>
     <_PublishTargetUrl>ftp://ftp.ccfrcville.org</_PublishTargetUrl>
+    <History>True|2023-08-31T17:38:33.1386025Z;True|2023-08-31T11:20:09.9865206-04:00;</History>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include=".editorconfig">
@@ -26,7 +28,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/18/2020 12:52:41</publishTime>
     </File>
     <File Include="AdminStart.aspx">
-      <publishTime>07/17/2020 10:33:14</publishTime>
+      <publishTime>07/15/2023 09:53:10</publishTime>
     </File>
     <File Include="App_Code/SharedCode.vb">
       <publishTime>10/09/2020 09:04:39</publishTime>
@@ -62,10 +64,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2019 13:33:30</publishTime>
     </File>
     <File Include="bin/CCFRW19.dll">
-      <publishTime>05/08/2023 12:38:36</publishTime>
+      <publishTime>08/31/2023 13:37:47</publishTime>
     </File>
     <File Include="bin/CCFRW19.pdb">
-      <publishTime>05/08/2023 12:38:36</publishTime>
+      <publishTime>08/31/2023 13:37:47</publishTime>
     </File>
     <File Include="bin/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:28</publishTime>
@@ -84,6 +86,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/de/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
     </File>
     <File Include="bin/de/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
@@ -109,6 +114,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/es/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
     </File>
+    <File Include="bin/es/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
+    </File>
     <File Include="bin/es/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
     </File>
@@ -126,6 +134,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/fr/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
     </File>
     <File Include="bin/fr/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
@@ -148,6 +159,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/it/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
     </File>
+    <File Include="bin/it/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
+    </File>
     <File Include="bin/it/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
     </File>
@@ -166,6 +180,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/ja/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
     </File>
+    <File Include="bin/ja/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
+    </File>
     <File Include="bin/ko/Microsoft.ReportViewer.Common.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
     </File>
@@ -180,6 +197,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/ko/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 16:57:30</publishTime>
@@ -230,16 +250,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/06/2013 11:20:22</publishTime>
     </File>
     <File Include="bin/Microsoft.SqlServer.Types.dll">
-      <publishTime>05/31/2019 11:24:26</publishTime>
+      <publishTime>08/22/2017 18:39:36</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.ComponentModelHost.dll">
       <publishTime>07/07/2015 00:51:38</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Data.Core.dll">
-      <publishTime>11/20/2020 14:54:26</publishTime>
+      <publishTime>05/17/2023 13:17:00</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Data.Services.dll">
-      <publishTime>11/20/2020 14:54:26</publishTime>
+      <publishTime>05/17/2023 13:17:00</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Debugger.Interop.11.0.dll">
       <publishTime>11/20/2020 14:53:54</publishTime>
@@ -250,6 +270,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.VisualStudio.GraphModel.dll">
       <publishTime>07/07/2015 00:51:38</publishTime>
     </File>
+    <File Include="bin/Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll">
+      <publishTime>05/17/2023 13:16:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.VisualStudio.Interop.dll">
+      <publishTime>05/17/2023 13:16:20</publishTime>
+    </File>
     <File Include="bin/Microsoft.VisualStudio.ManagedInterfaces.dll">
       <publishTime>11/20/2020 14:53:50</publishTime>
     </File>
@@ -257,7 +283,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2020 14:52:38</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.ProjectAggregator.dll">
-      <publishTime>11/20/2020 14:52:38</publishTime>
+      <publishTime>05/17/2023 13:16:20</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Shell.Interop.10.0.dll">
       <publishTime>11/20/2020 14:52:38</publishTime>
@@ -312,6 +338,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/pt/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
+    </File>
+    <File Include="bin/pt/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
     </File>
     <File Include="bin/ro/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
@@ -478,6 +507,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/ru/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
     </File>
+    <File Include="bin/ru/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
+    </File>
     <File Include="bin/ru/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
     </File>
@@ -500,7 +532,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2020 14:52:38</publishTime>
     </File>
     <File Include="bin/WebForms_Basic.xml">
-      <publishTime>05/08/2023 12:38:36</publishTime>
+      <publishTime>08/31/2023 13:37:47</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -550,8 +582,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/zh-CHT/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>02/25/2020 23:35:32</publishTime>
     </File>
+    <File Include="bin/zh-Hans/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
+    </File>
     <File Include="bin/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:30</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.SqlServer.Types.resources.dll">
+      <publishTime>08/22/2017 19:39:36</publishTime>
     </File>
     <File Include="bin/_vti_cnf/CKEditor.NET.dll">
       <publishTime>06/17/2020 11:25:10</publishTime>
@@ -599,7 +637,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 11:19:37</publishTime>
     </File>
     <File Include="ContactUs.aspx">
-      <publishTime>06/28/2020 09:16:02</publishTime>
+      <publishTime>08/31/2023 11:18:21</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>06/17/2020 11:36:00</publishTime>
@@ -746,7 +784,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2020 16:15:04</publishTime>
     </File>
     <File Include="EventSignUp.aspx">
-      <publishTime>05/27/2020 11:00:12</publishTime>
+      <publishTime>08/31/2023 13:26:10</publishTime>
     </File>
     <File Include="EventTable.aspx">
       <publishTime>05/14/2021 15:17:56</publishTime>
@@ -824,7 +862,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2020 11:06:42</publishTime>
     </File>
     <File Include="Membership.aspx">
-      <publishTime>08/25/2020 12:51:59</publishTime>
+      <publishTime>08/31/2023 09:36:16</publishTime>
+    </File>
+    <File Include="Membership.aspx.designer.vb">
+      <publishTime>08/31/2023 08:51:42</publishTime>
+    </File>
+    <File Include="Membership.aspx.vb">
+      <publishTime>08/31/2023 09:36:16</publishTime>
     </File>
     <File Include="MemberSignup.aspx">
       <publishTime>08/15/2021 14:36:14</publishTime>

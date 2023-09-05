@@ -11,7 +11,7 @@ Public Class AdminStart
         Dim id As Integer
         Me.DateDDL.ConnectionString = conn.ConnectionString
         Me.SqlDataSource1.ConnectionString = conn.ConnectionString
-        Session["Debug"]=True;
+        Session("Debug") = True
         If Not IsPostBack Then
             Using cmd As New SqlCommand("FillPPTranslog", conn)
                 cmd.CommandType = CommandType.StoredProcedure
@@ -56,7 +56,6 @@ Public Class AdminStart
 
         End If
         FillBadRegGrid()
-        Session("Admin") = "Admin"
         EventDLL_Index_Changed("", e)
     End Sub
     Protected Sub UpdateProblemRegistrations()

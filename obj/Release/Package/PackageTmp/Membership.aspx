@@ -7,7 +7,7 @@
 	
 	Membership is open to anyone interested in foreign policy and 
 	international affairs, and new members are enthusiastically welcomed. 
-	Current membership dues are $120. For the upcoming year of 2020-2021 only, where meetings are held over Zoom, the annual dues will be $60 per individual or couple.  If you are interested in membership, 
+	Current membership dues are <asp:Label ID="Label1" runat="server" Text=""></asp:Label>  If you are interested in membership, 
 	please download the <a href="Documents/ProspMemberInfo.pdf">Prospective Member Information</a> and the 
 	<a href="Documents/Membership form.pdf">Membership 
 	Application</a>, fill it out and mail it to: <br />
