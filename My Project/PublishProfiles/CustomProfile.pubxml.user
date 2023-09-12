@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwplAbLQf60Ckb2mnQPPH4AAAAAACAAAAAAAQZgAAAAEAACAAAACZcxYcg8oEnuLQbuBFfuA78WelI5/I9uiB7eplDWFCTQAAAAAOgAAAAAIAACAAAAARSbqwBVPKKdt7vreTlVQZyVMExS0H1q9Y6eiqH6H8cyAAAABJvm0nAz8rB/ha2MdueK3Cn/j0rBfyVxIFPhiBJCQNIUAAAADT/P5Fh+OzzSfarSJ3nc6z5Ny+EY0ypGL+AVwqv3ojK0Gs8ZtXsGTVwYzDSwdoIjb31lhtwnCgf00nnmbXC2os</EncryptedPassword>
     <_PublishTargetUrl>ftp://ftp.ccfrcville.org</_PublishTargetUrl>
-    <History>True|2023-08-31T17:38:33.1386025Z;True|2023-08-31T11:20:09.9865206-04:00;</History>
+    <History>True|2023-09-12T12:50:29.3375406Z;True|2023-09-12T08:48:09.8158124-04:00;True|2023-09-06T12:17:34.3219911-04:00;True|2023-08-31T13:38:33.1386025-04:00;True|2023-08-31T11:20:09.9865206-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -64,10 +64,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/16/2019 13:33:30</publishTime>
     </File>
     <File Include="bin/CCFRW19.dll">
-      <publishTime>08/31/2023 13:37:47</publishTime>
+      <publishTime>09/12/2023 08:49:50</publishTime>
     </File>
     <File Include="bin/CCFRW19.pdb">
-      <publishTime>08/31/2023 13:37:47</publishTime>
+      <publishTime>09/12/2023 08:49:50</publishTime>
     </File>
     <File Include="bin/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll">
       <publishTime>01/30/2020 14:34:28</publishTime>
@@ -220,7 +220,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/05/2018 17:10:50</publishTime>
     </File>
     <File Include="bin/Microsoft.MSXML.dll">
-      <publishTime>11/20/2020 14:52:38</publishTime>
+      <publishTime>07/06/2015 21:55:04</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
       <publishTime>02/25/2020 23:35:30</publishTime>
@@ -532,7 +532,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2020 14:52:38</publishTime>
     </File>
     <File Include="bin/WebForms_Basic.xml">
-      <publishTime>08/31/2023 13:37:47</publishTime>
+      <publishTime>09/12/2023 08:49:50</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -913,7 +913,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/28/2020 09:22:41</publishTime>
     </File>
     <File Include="ReservationsClosed.aspx">
-      <publishTime>06/28/2020 09:17:10</publishTime>
+      <publishTime>09/12/2023 08:49:34</publishTime>
     </File>
     <File Include="RosterR.rdlc">
       <publishTime>07/31/2020 15:22:39</publishTime>
@@ -1072,7 +1072,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 11:19:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/08/2023 12:38:41</publishTime>
+      <publishTime>09/12/2023 08:50:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

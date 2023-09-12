@@ -107,18 +107,18 @@ Public Class PpListener
                 End Select
             Next
             If Not String.IsNullOrEmpty(err) Then
-                RecordError("ppListener", "started", err, sqlConnection)
+                RecordError("ppListener", "Ended on Error", err, sqlConnection)
                 Try
                     SendMessagetoWebMaster(err & " IDs " & Session("UserID").ToString & Session("EventID").ToString)
                 Catch
                 End Try
-
+                If Left(err, 25) = "Transaction Number Reused" Then Exit Sub
             Else
                 RecordError("ppListener", "started", "Decode Complete ", sqlConnection)
             End If
 
             Try
-                Dim strSQL As String = "select tCheckAmount from tmpAccount where tEventID = @evid and tMemID = @memID"
+                Dim strSQL As String = "Select tCheckAmount from tmpAccount where tEventID = @evid And tMemID = @memID"
                 Using cmd As New SqlCommand(strSQL, sqlConnection)
                     cmd.Parameters.Add("@evid", SqlDbType.BigInt)
                     cmd.Parameters("@evid").Value = evID
@@ -140,7 +140,7 @@ Public Class PpListener
                 RecordError("Transaction Number Reused", " ", " ", sqlConnection)
             End If
         ElseIf strResponse = "INVALID" Then
-            RecordError("Invalid Transaction Posted on CCFRcville.org", " ", " ", sqlConnection)
+            RecordError("Invalid Transaction Posted On CCFRcville.org", " ", " ", sqlConnection)
         Else
             RecordError("strResponse = ", strResponse, " ", sqlConnection)
         End If
@@ -162,7 +162,7 @@ Public Class PpListener
                 command.ExecuteNonQuery()
             End Using
         Catch ex As Exception
-            RecordError(ex.Message, ex.ToString, "Failed to record pptranslog", sqlConnection)
+            RecordError(ex.Message, ex.ToString, "Failed To record pptranslog", sqlConnection)
 
         End Try
         RecordError("Transaction Status", cmplete, " ", sqlConnection)
@@ -172,7 +172,7 @@ Public Class PpListener
                 SendEMailConfirmation(Me, e)
             End If
         ElseIf cmplete = "Pending" Then
-            Dim sqlQueryP As String = "UPDATE tmpAccount SET tmpAccount.tCheckNumber = @tchknum where tEventID = @evid and tMemID = @memID "
+            Dim sqlQueryP As String = "UPDATE tmpAccount Set tmpAccount.tCheckNumber = @tchknum where tEventID = @evid And tMemID = @memID "
             Using cmdp As New SqlCommand(sqlQueryP, sqlConnection)
                 cmdp.Parameters.Add("@evID", SqlDbType.Int)
                 cmdp.Parameters("@evID").Value = evID
@@ -208,7 +208,7 @@ Public Class PpListener
         Dim updateerror As String = ""
         RecordError("Update Tables Started", " ", " ", sqlConnection)
         If MealsOwed <> 0 Then
-            Using cmd As New SqlCommand("Update Member set MealsOwed = MealsOwed - @MO where ID = @MemID", sqlConnection)
+            Using cmd As New SqlCommand("Update Member Set MealsOwed = MealsOwed - @MO where ID = @MemID", sqlConnection)
                 cmd.Parameters.AddWithValue("@MemID", memid)
                 cmd.Parameters.AddWithValue("@MO", MealsOwed)
                 cmd.ExecuteNonQuery()
@@ -228,7 +228,7 @@ Public Class PpListener
         RecordError("Update Account Table", "started", " ", sqlConnection)
         'Update Account
         Try
-            Dim sqlQuery As String = "INSERT INTO Account ( tType,tCheckNumber, tCheckAmount, tPayee, tEventDate, tCategory, tcheckdate, tdateentered ) SELECT tmpAccount.tType, @tchkno, tmpAccount.tCheckAmount, tmpAccount.tPayee, tmpAccount.tEventDate, tmpAccount.tCategory, tmpAccount.tcheckdate, tmpAccount.tdateentered FROM tmpAccount where tmpAccount.tMemID = @memID and tmpAccount.tEventId= @evid "
+            Dim sqlQuery As String = "INSERT INTO Account ( tType,tCheckNumber, tCheckAmount, tPayee, tEventDate, tCategory, tcheckdate, tdateentered ) Select tmpAccount.tType, @tchkno, tmpAccount.tCheckAmount, tmpAccount.tPayee, tmpAccount.tEventDate, tmpAccount.tCategory, tmpAccount.tcheckdate, tmpAccount.tdateentered FROM tmpAccount where tmpAccount.tMemID = @memID And tmpAccount.tEventId= @evid "
             Using cmd2 As New SqlCommand(sqlQuery, sqlConnection)
                 cmd2.Parameters.Add("@evID", SqlDbType.Int)
                 cmd2.Parameters("@evID").Value = evid
@@ -242,13 +242,13 @@ Public Class PpListener
             End Using
             RecordError("Update Account Table", "Completed", "Records Inserted  " & cnt, sqlConnection)
         Catch ex As Exception
-            RecordError(ex.Message, ex.ToString, "Account table error", sqlConnection)
+            RecordError(ex.Message, ex.ToString, "Account table Error", sqlConnection)
         End Try
         ' check for dues
         RecordError("Process Dues", "Started", " ", sqlConnection)
         Try
             Dim sqlQuery As String
-            sqlQuery = "Select tDuesPayed from tmpAccount where tEventID = @evid and tMemID= @memID"
+            sqlQuery = "Select tDuesPayed from tmpAccount where tEventID = @evid And tMemID= @memID"
             Using cmd As New SqlCommand(sqlQuery, sqlConnection)
                 cmd.Parameters.Add("@evID", SqlDbType.Int)
                 cmd.Parameters("@evID").Value = evid
@@ -257,7 +257,7 @@ Public Class PpListener
                 Dim amt As Double = CDbl(cmd.ExecuteScalar)
                 If amt > 0 Then
                     RecordError("Dues Payment Found", CStr(amt), "Amount", sqlConnection)
-                    sqlQuery = "UPDATE Member SET Member.DuesOwed = 0 WHERE (((Member.ID)=@memID));"
+                    sqlQuery = "UPDATE Member Set Member.DuesOwed = 0 WHERE (((Member.ID)=@memID));"
                     Dim cmddues As New SqlCommand(sqlQuery, sqlConnection)
                     cmddues.Parameters.Add("@memid", SqlDbType.Int)
                     cmddues.Parameters("@memid").Value = memid
@@ -267,7 +267,7 @@ Public Class PpListener
                 End If
             End Using
         Catch ex As Exception
-            RecordError(ex.Message, ex.ToString, "tmpAccount table error", sqlConnection)
+            RecordError(ex.Message, ex.ToString, "tmpAccount table Error", sqlConnection)
             SendMessagetoWebMaster(err)
         End Try
         'clear temp tables
@@ -323,7 +323,7 @@ Public Class PpListener
         Dim StrMessage As String
         Dim CostPer As Double
         Dim EventDate As Date
-        Using cmd As New SqlCommand("select Cost,EventDate from Event  where id =@evID", sqlConnection)
+        Using cmd As New SqlCommand("Select Cost,EventDate from Event  where id =@evID", sqlConnection)
             cmd.Parameters.AddWithValue("@evID", evID)
             Dim dr As SqlDataReader = cmd.ExecuteReader
             If dr.HasRows Then
@@ -342,7 +342,7 @@ Public Class PpListener
 
         myMessage.Bcc.Add("ccfrwm@gmail.com")
         myMessage.Bcc.Add("webmaster@ccfrcville.org")
-        Dim sqlQuery0 As String = "SELECT FirstName, LastName, [E-Mail], ID FROM member WHERE   ID =@memid "
+        Dim sqlQuery0 As String = "Select FirstName, LastName, [E-Mail], ID FROM member WHERE   ID =@memid "
         Using cmd1 As New SqlCommand(sqlQuery0, sqlConnection)
             cmd1.Parameters.Add("@memid", SqlDbType.Int)
             cmd1.Parameters("@memid").Value = MemID
@@ -359,23 +359,23 @@ Public Class PpListener
             If NoAttend > 0 Then
 
                 myMessage.Subject = "Reservation Confirmation"
-                StrMessage += "Your reservation for the CCFR meeting on " & EventDate & " is Confirmed."
+                StrMessage += "Your reservation For the CCFR meeting On " & EventDate & " Is Confirmed."
                 If DuesPaid > 0 Then
-                    StrMessage += "<br />Your CCFR dues payment of " & Format(DuesPaid, "c") & " is also confirmed.<br />"
+                    StrMessage += "<br />Your CCFR dues payment Of " & Format(DuesPaid, "c") & " Is also confirmed.<br />"
                 Else
                     StrMessage += "<br/>"
                 End If
             ElseIf NoAttend = 0 And DuesPaid > 0 Then
-                StrMessage += "Your CCFR dues payment of " & Format(DuesPaid, "c") & " is confirmed<br />"
+                StrMessage += "Your CCFR dues payment Of " & Format(DuesPaid, "c") & " Is confirmed<br />"
                 If MealsOwed > 0 Then
-                    StrMessage += "This transaction included a charge of " & Format(MealsOwed, "c") & "<br />"
+                    StrMessage += "This transaction included a charge Of " & Format(MealsOwed, "c") & "<br />"
 
                 ElseIf MealsOwed < 0 Then
-                    StrMessage += "The credit on your account was reduced by " & Format(-MealsOwed, "c") & "<br />"
+                    StrMessage += "The credit On your account was reduced by " & Format(-MealsOwed, "c") & "<br />"
 
                 Else
                 End If
-                StrMessage += "Your total payment of " & Format(TotalCost, "c") & " is confirmed<br />"
+                StrMessage += "Your total payment Of " & Format(TotalCost, "c") & " Is confirmed<br />"
 
 
                     myMessage.Subject = "CCFR Dues Payment Confirmation"
@@ -383,7 +383,7 @@ Public Class PpListener
                     myMessage.Subject = "CCFR Reservation Change Confirmation"
 
                 ElseIf DuesPaid > 0 Then
-                    StrMessage += "Your CCFR dues payment of " & Format(DuesPaid, "c") & " is also confirmed.<br />"
+                    StrMessage += "Your CCFR dues payment Of " & Format(DuesPaid, "c") & " Is also confirmed.<br />"
                 myMessage.Subject = "CCFR Reservation Change Confirmation"
             End If
 
@@ -391,7 +391,7 @@ Public Class PpListener
         End Try
         StrMessage += "<br />"
         Dim cnt As Integer
-        Using cmd As New SqlCommand("select count(mFullName) from AttendDetail(@evID,@memID)", sqlConnection)
+        Using cmd As New SqlCommand("Select count(mFullName) from AttendDetail(@evID,@memID)", sqlConnection)
             cmd.Parameters.Add("@evid", SqlDbType.Int)
             cmd.Parameters("@evID").Value = Session("EventID")
             cmd.Parameters.Add("@memID", SqlDbType.Int)
@@ -403,7 +403,7 @@ Public Class PpListener
         If NoAttend <> 0 And cnt > 0 Then
 
 
-            StrMessage += "<br/>Reservation For:"
+            StrMessage += "<br/>Reservation For"
             StrMessage += "<br /><Table>"
             Using cmd As New SqlCommand("select * from AttendDetail(@evID,@memID)", sqlConnection)
                 cmd.Parameters.Add("@evid", SqlDbType.Int)
@@ -420,7 +420,7 @@ Public Class PpListener
 
                 End If
 
-            End Using
+                End Using
             StrMessage += "</table><br />"
         End If
         If NoAttend > 0 Then

@@ -13,6 +13,6 @@
                   NavigateUrl="mailto:reservations@ccfrcville.org"
                   Text="reservations@ccfrcville.org"
                   Target="_new"
-                  runat="server"/> to see if late additions or changes to reservations can be accommodated.<br /><br />Reservations close at midnight on the Monday before the meeting.
+                  runat="server"/> to see if late additions or changes to reservations can be accommodated.<br /><br />Reservations close at midnight on the Sunday before the meeting.
     </div>
 </asp:Content>
