@@ -1,1 +1,0 @@
-﻿<%@ WebHandler Language="VB" CodeBehind="Handler1.ashx.vb" Class="CCFRW19.Handler1" %>
